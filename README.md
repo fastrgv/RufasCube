@@ -1,5 +1,5 @@
 # RufasCube
-RufasCube...looks like a rubic cube but it's a slider, not a twister
+RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle that runs on Mac OS-X and GNU Linux.
 
 
 # RufasCube v 2.61 beta  13jan2016
