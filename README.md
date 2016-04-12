@@ -4,9 +4,14 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 Click on the large tar.gz file under releases for all source & binaries.
 
 
-# RufasCube v 2.61 beta  13jan2016
+# RufasCube v 2.6.2
 
 ## What's new (newest at top of this list):
+
+
+**ver 2.6.2 -- 12apr16**
+
+* Important library update for Gnu/Linux users on 27% of distros that do not provide FLAC, ogg, vorbis libraries.  Missing softlinks caused run failure.  That is now fixed.
 
 
 **ver 2.61 -- 19feb16**
@@ -133,15 +138,16 @@ Two [pre-compiled] binary executables are provided, one for gnu/linux and one fo
 No Makefile is provided, but build scripts are used.  Suggestions for improving the build process are welcome.
 
 -------------------------------------------------------
-MacOSX:
+MacOSX => ocmp.sh:
 
-<ocmp.sh>:  build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux:  
+GNU/Linux => scmp.sh:
 
-<lcmp.sh>:  utilizes the uncommon relocatable libraries (mainly SDL2, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script <lcmp.sh> will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
+utilizes the uncommon relocatable libraries (mainly SDL2, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (scmp.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
+If the delivered linux binary does not run on your distro, recompile with scmp.sh
 
 
 ------------------------
