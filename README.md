@@ -4,9 +4,16 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 Click on the large tar.gz file under releases for all source & binaries.
 
 
-# RufasCube v 2.6.2
+# RufasCube v 2.6.3
 
 ## What's new (newest at top of this list):
+
+
+**ver 2.6.3 -- 03jul16**
+
+* Improved sounds, snd4ada.cpp codes.
+* Updated to use ada-intrinsic pseudo-random numbers, including a time dependent randomization so each run is different.
+
 
 
 **ver 2.6.2 -- 12apr16**
