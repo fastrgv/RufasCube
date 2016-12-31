@@ -3,13 +3,20 @@
 # RufasCube
 RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle that runs on Mac OS-X and GNU Linux.
 
-Click on the large tar.gz file under releases for all source & binaries or try this:
-https://github.com/fastrgv/RufasCube/releases/download/v2.6.3/rcube3jul16.tar.gz
+Click on the large tar.gz file under releases for all source & binaries or try this link:
+
+https://github.com/fastrgv/RufasCube/releases/download/v2.6.4/rcube31dec16.tar.gz
 
 
-# RufasCube v 2.6.3
+# RufasCube v 2.6.4
 
 ## What's new (newest at top of this list):
+
+**ver 2.6.4 -- 31dec16**
+
+* Now using generalized SFML-audio interface code: snd4ada.cpp.
+* Improved build system to be compatible with more linux distros.
+* Improved OpenGL coding to also support Intel embedded graphics hardware.
 
 
 **ver 2.6.3 -- 03jul16**
@@ -157,7 +164,20 @@ GNU/Linux => scmp.sh:
 
 utilizes the uncommon relocatable libraries (mainly SDL2, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (scmp.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
-If the delivered linux binary does not run on your distro, recompile with scmp.sh
+If the delivered linux binary does not run...
+
+* Manually install GNAT GPL from libre.adacore.com/download/.
+* Rerun the compile script scmp.sh.
+
+
+### Link Problems during linux build:
+
+On a linux build machine, you might have minor link errors, depending on its configuration.  If you are missing "libz", you can simply copy "libz.so" from /usr/gnat/lib/gps/ into /usr/local/lib/.  If "libGL" cannot be found, this literally means "libGL.so" was absent.  But you might have "libGL.so.1" present.  In this case, simply create a softlink by changing to the libGL directory, then type the line:
+
+sudo ln -s libGL.so.1 libGL.so  (and enter the admin password)
+
+whence the linker should now be able to find what it wants.  But if there is more than one file libGL.so present on your system, make sure you use the best one;  i.e. the one that uses your accelerated-graphic-driver.
+
 
 
 ------------------------
