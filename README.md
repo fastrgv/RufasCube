@@ -5,12 +5,22 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v2.6.4/rcube31dec16.tar.gz
+https://github.com/fastrgv/RufasCube/releases/download/v2.6.5/rcub5jan17.tar.gz
 
 
-# RufasCube v 2.6.4
+
+# RufasCube v 2.6.5 
 
 ## What's new (newest at top of this list):
+
+
+**ver 2.6.5 -- 5jan17**
+
+* Updated to use new SFML libs.
+* Corrected a duplicate window glitch.
+* Refined compiler scripts.
+
+
 
 **ver 2.6.4 -- 31dec16**
 
