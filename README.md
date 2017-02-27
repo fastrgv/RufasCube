@@ -5,13 +5,27 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v2.6.5/rcub5jan17.tar.gz
+https://github.com/fastrgv/RufasCube/releases/download/v3.0.1/rc_glfw_28feb17.tar.gz
 
 
-
-# RufasCube v 2.6.5 
+# RufasCube v 3.0.1
 
 ## What's new (newest at top of this list):
+
+
+**ver 3.0.1 -- 28feb17**
+
+* Added mouse wheel zoom.
+* Added (n)-key [nearer] and (f)-key [further].
+* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
+* Removed development-scaffolding code-fragments for cleaner exposition.
+* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
+
+
+**ver 3.0.0 -- 22feb17**
+
+* Created this new branch that uses OpenGLAda from Felix Krause, and GLFW.
+* Minus mousewheel zoom.
 
 
 **ver 2.6.5 -- 5jan17**
@@ -21,20 +35,16 @@ https://github.com/fastrgv/RufasCube/releases/download/v2.6.5/rcub5jan17.tar.gz
 * Refined compiler scripts.
 
 
-
 **ver 2.6.4 -- 31dec16**
 
 * Now using generalized SFML-audio interface code: snd4ada.cpp.
 * Improved build system to be compatible with more linux distros.
 * Improved OpenGL coding to also support Intel embedded graphics hardware.
 
-
 **ver 2.6.3 -- 03jul16**
 
 * Improved sounds, snd4ada.cpp codes.
 * Updated to use ada-intrinsic pseudo-random numbers, including a time dependent randomization so each run is different.
-
-
 
 **ver 2.6.2 -- 12apr16**
 
@@ -43,14 +53,14 @@ https://github.com/fastrgv/RufasCube/releases/download/v2.6.5/rcub5jan17.tar.gz
 
 **ver 2.61 -- 19feb16**
 
-* Added Mac binary bundle that acts much more like a typical Mac App.  This app is delivered in the installation directory, but could be moved elsewhere, such as your personal Applications directory [and initiated with a click].
+* Added Mac binary bundle that acts much more like a typical Mac App.  This app is delivered in the installation directory, but could be moved elsewhere, such as your personal Applications directory [and initiated with a click].  Note that there are some soft [symbolic] links in the bundle that are resolved automatically when copied with the command "cp -r rufascube.app destination-directory".
+ 
 * Generalized utex package.
-
 
 **ver 2.6 -- 13jan16**
 
-* Added mousewheel zoom control;
-* Added flat letter diagram in upper right window;
+* Added mousewheel zoom;
+* Added flat letter diagram in upper right.
 
 
 **ver 2.5 -- 1dec15**
@@ -69,37 +79,26 @@ https://github.com/fastrgv/RufasCube/releases/download/v2.6.5/rcub5jan17.tar.gz
 	[The objective for any iQube is to convert it to solid red]
 
 
-**ver 2.1 -- 18nov15**
-
- * Repaired color error in RGB mode.
- * added iQube options using command line parameters from the set {g,y}.  A 3rd & 4th skin option is now available by using a "g" or "y" command line parameter for a new game named iQube.  The objective of this puzzle is to invert the cube by changing its outer color from green or yellow to red.  And when you do, the letter cues will be in alphabetical order, and the fanfare is sounded.  Several other interesting patterns are also possible as illustrated in the file "iqube0.gif".  Note:  the shuffle keys are not intended for this option, yet can be used anyway for a random and possibly easier (using 1) starting position...plus, the autosolver still functions immediately after randomization.
- * RGB skin version now has improved winner test to allow for all valid solutions.  Note that all the other versions have only 1 valid solution.
-
-
-**ver 2.0 -- 20oct15**
-
- * Initial version of this translation of RufasCube to the Ada language.
-
 
 
 
 ## what is special about this project?
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders and uniforms.  Achieves version 3.3 core profile contexts, and compiles and runs on both GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL and GLSL.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders and uniforms.  Achieves version 3.3 core profile contexts, and compiles and runs on both GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL and the OpenGLAda binding.
 
-Focusing on portability and freedom, no coding effort or compromise has been made to accomodate proprietary operating systems.  It relies on a thin SDL2 binding from Dan Vazquez, a thin OpenGL binding from "Lumen", a PNG reader by Stephen Sanguine, and SFML-Audio (because of its elegant audio interface).
-
-The Ada bindings used are thin, so the relationship to C++ methodology is quite transparent.  Developers should note that these Ada bindings are usable as a standalone library for most any OpenGL project that uses Ada.
+Focusing on portability and freedom, no coding effort or compromise has been made to accomodate proprietary operating systems.  It relies on a thick OpenGLAda binding to OpenGL and GLFW by Felix Krause, a PNG reader by Stephen Sanguine, and SFML-Audio (because of its elegant audio interface).
 
 ## RufasCube Game Introduction
 RufasCube is NOT another Rubic's Cube. It's a whole new kind of puzzle. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints.
 
 Dragging the cursor rotates the cube for a better view angle.
 
-Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit <return> when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad does the job.
+Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad does the job.
 
-As indicated on screen, <h> will toggle a help screen.
+Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
 
-Note that <c> will toggle an alternate skin Color.  One looks like a rubic cube coloring, and the other is an RGB coloring where red increases in the X-direction, green increases in the Y-direction, and blue in the Z-direction.
+As indicated on screen, (h) will toggle a help screen.
+
+Note that (c) will toggle an alternate skin Color.  One looks like a rubic cube coloring, and the other is an RGB coloring where red increases in the X-direction, green increases in the Y-direction, and blue in the Z-direction.
 
 Works on Macs running OS-X and PCs running GNU/Linux.
 
@@ -109,7 +108,7 @@ Works on Macs running OS-X and PCs running GNU/Linux.
 ## required for running:
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* GNU/Linux or a Mac running OS-X (even Yosemite & ElCapitan);
+* GNU/Linux or a Mac running OS-X (even ElCapitan);
 * rufascube_gnu is the executable name on GNU/Linux.
 * rufascube_osx is the executable for Mac OS-X.
 
@@ -117,8 +116,9 @@ Works on Macs running OS-X and PCs running GNU/Linux.
 ## Open Source libraries required for building:
 -------------------------------------------
 * systems:  OS-X or GNU/Linux
-* a recent gnat compiler
-* the included "libs" directory contains Ada interfaces;
+* Xcode g++ compiler, if using OS-X;
+* a recent gnat compiler for Linux;  gnu-ada for OS-X;
+* the included directories contain required Ada interfaces;
 * see example scripts;
 * Note that the Ada interface to SFML-AUDIO (snd4ada_hpp.ads) was created with the command:
   "g++ -c -fdump-ada-spec -C snd4ada.hpp"
@@ -127,11 +127,11 @@ Works on Macs running OS-X and PCs running GNU/Linux.
 
 ## Running rufascube:
 -------------------------------------------
-Unzip the archive and you will see a new directory appear with a name like "bundle_<date>", that you should rename to something like "cube_install_directory".  
+Unzip the archive and you will see a new directory appear with a name like "bundle_(date)", that you should rename to something like "cube_install_directory".  
 
-Linux users should then cd to cube_install_directory, then type "rufascube_gnu" to start the game.
+Linux users should then cd to cube_install_directory, then type "rufascube_gnu" to start the game.  You may also double click the icon for rufascube_gnu in file manager. 
 
-Mac users please note:  this game is initiated by opening a terminal, navigating to the cube_install_directory, and typing "rufascube_osx" on the command line.  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
+Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the cube_install_directory, and typing "rufascube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "rufascube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
 The cube_install_directory should contain a subdirectory named "data".  It contains shaders and sound data.
 
@@ -146,7 +146,7 @@ One optional command-line parameter can be either:
 
 The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd & 4th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.
 
-As indicated on screen, <h> will show a help screen.  As long as you are not in the iQube mode, the <c> key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom.
+As indicated on screen, (h) will show a help screen.  As long as you are not in the iQube mode, the (c) key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom.
 
 
 ---------------------------------------------------------------------------
@@ -160,24 +160,25 @@ Developer or not, send comments, suggestions or questions to:
 
 ## Build instructions for RufasCube:
 
-Two [pre-compiled] binary executables are provided, one for gnu/linux and one for OS-X.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:  SFML, SDL2
+Two [pre-compiled] binary executables are provided, one for gnu/linux and one for OS-X.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
+SDL2, SFML, FLAC, ogg, vorbis, & openal.
 
-No Makefile is provided, but build scripts are used.  Suggestions for improving the build process are welcome.
+No Makefile is provided, but build scripts are used;  and due to a recent script change, a linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-MacOSX => ocmp.sh:
+MacOSX => ocmpss0.sh:
 
 build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => scmp.sh:
+GNU/Linux => lcmpss.sh or lcmp.sh:
 
-utilizes the uncommon relocatable libraries (mainly SDL2, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (scmp.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
+utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
 If the delivered linux binary does not run...
 
 * Manually install GNAT GPL from libre.adacore.com/download/.
-* Rerun the compile script scmp.sh.
+* Rerun the compile script lcmp.sh.
 
 
 ### Link Problems during linux build:
@@ -231,4 +232,9 @@ In february of 2015 I discovered that RufasCube could be considered a software i
 
 For further iqube analysis see:
 http://www.jaapsch.net/puzzles/blackhole.htm
+
+----------------------------------------------
+## Best Download Site for all my games:
+https://github.com/fastrgv?tab=repositories
+
 
