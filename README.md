@@ -5,80 +5,21 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v3.0.1/rc_glfw_28feb17.tar.gz
 
+# RufasCube v 4.0.0 using GLFW Thin-Binding
 
-# RufasCube v 3.0.1
+## Latest Revision:
 
-## What's new (newest at top of this list):
+**ver 4.0.0 -- 11apr17**
 
+* Discarded OpenGLAda.  Created this new branch that uses a thin binding to GLFW [1].
+* Improved the getkey code by flushing event queue;
+* New placement of main loop exit responds more quickly to the quit command.
+* Removed OpenGL-deprecated glshademodel function that may cause aborts;
+* Added function dumpGLerrorQueue, and more OGL error checks;  OGL errors can be set to raise exceptions if the boolean flag dbug is set.
+* Fixed gnu libs so GNU Ada compiles as well as AdaCore Ada.
 
-**ver 3.0.1 -- 28feb17**
-
-* Added mouse wheel zoom.
-* Added (n)-key [nearer] and (f)-key [further].
-* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
-* Removed development-scaffolding code-fragments for cleaner exposition.
-* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
-
-
-**ver 3.0.0 -- 22feb17**
-
-* Created this new branch that uses OpenGLAda from Felix Krause, and GLFW.
-* Minus mousewheel zoom.
-
-
-**ver 2.6.5 -- 5jan17**
-
-* Updated to use new SFML libs.
-* Corrected a duplicate window glitch.
-* Refined compiler scripts.
-
-
-**ver 2.6.4 -- 31dec16**
-
-* Now using generalized SFML-audio interface code: snd4ada.cpp.
-* Improved build system to be compatible with more linux distros.
-* Improved OpenGL coding to also support Intel embedded graphics hardware.
-
-**ver 2.6.3 -- 03jul16**
-
-* Improved sounds, snd4ada.cpp codes.
-* Updated to use ada-intrinsic pseudo-random numbers, including a time dependent randomization so each run is different.
-
-**ver 2.6.2 -- 12apr16**
-
-* Important library update for Gnu/Linux users on 27% of distros that do not provide FLAC, ogg, vorbis libraries.  Missing softlinks caused run failure.  That is now fixed.
-
-
-**ver 2.61 -- 19feb16**
-
-* Added Mac binary bundle that acts much more like a typical Mac App.  This app is delivered in the installation directory, but could be moved elsewhere, such as your personal Applications directory [and initiated with a click].  Note that there are some soft [symbolic] links in the bundle that are resolved automatically when copied with the command "cp -r rufascube.app destination-directory".
- 
-* Generalized utex package.
-
-**ver 2.6 -- 13jan16**
-
-* Added mousewheel zoom;
-* Added flat letter diagram in upper right.
-
-
-**ver 2.5 -- 1dec15**
-
- * Replacing C++ version of RufasCube v2.4 with this Ada version;
- * Improved PNG loader procedure.
- * (c)-key now updates window title when toggling between RgbCube & RufasCube.
- * Now 4 choices for the optional single command line parameter:
-
-	* none => start with RufasCube;  user may toggle to RgbCube;
-	* r => start with RgbCube;  user may toggle to RufasCube;
-
-	* g => Solid Green iQube;
-	* yg => Yellow iQube with green dots;
-	* yr => Yellow iQube with red dots;
-	[The objective for any iQube is to convert it to solid red]
-
-
+### See complete revision history at end of file.
 
 
 
@@ -108,7 +49,7 @@ Works on Macs running OS-X and PCs running GNU/Linux.
 ## required for running:
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* GNU/Linux or a Mac running OS-X (even ElCapitan);
+* GNU/Linux or a Mac running OS-X;
 * rufascube_gnu is the executable name on GNU/Linux.
 * rufascube_osx is the executable for Mac OS-X.
 
@@ -166,12 +107,12 @@ SDL2, SFML, FLAC, ogg, vorbis, & openal.
 No Makefile is provided, but build scripts are used;  and due to a recent script change, a linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-MacOSX => ocmpss0.sh:
+MacOSX => ocmpss.sh:
 
 build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => lcmpss.sh or lcmp.sh:
+GNU/Linux => lcmpss.sh or lcmpd.sh:
 
 utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
@@ -238,3 +179,75 @@ http://www.jaapsch.net/puzzles/blackhole.htm
 https://github.com/fastrgv?tab=repositories
 
 
+## Revision History:
+
+**ver 3.0.1 -- 28feb17**
+
+* Added mouse wheel zoom.
+* Added (n)-key [nearer] and (f)-key [further].
+* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
+* Removed development-scaffolding code-fragments for cleaner exposition.
+* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
+
+
+**ver 3.0.0 -- 22feb17**
+
+* Created this new branch that uses OpenGLAda from Felix Krause.
+* Minus mousewheel zoom.
+
+
+**ver 2.6.5 -- 5jan17**
+
+* Updated to use new SFML libs.
+* Corrected a duplicate window glitch.
+* Refined compiler scripts.
+
+
+**ver 2.6.4 -- 31dec16**
+
+* Now using generalized SFML-audio interface code: snd4ada.cpp.
+* Improved build system to be compatible with more linux distros.
+* Improved OpenGL coding to also support Intel embedded graphics hardware.
+
+**ver 2.6.3 -- 03jul16**
+
+* Improved sounds, snd4ada.cpp codes.
+* Updated to use ada-intrinsic pseudo-random numbers, including a time dependent randomization so each run is different.
+
+**ver 2.6.2 -- 12apr16**
+
+* Important library update for Gnu/Linux users on 27% of distros that do not provide FLAC, ogg, vorbis libraries.  Missing softlinks caused run failure.  That is now fixed.
+
+
+**ver 2.61 -- 19feb16**
+
+* Added Mac binary bundle that acts much more like a typical Mac App.  This app is delivered in the installation directory, but could be moved elsewhere, such as your personal Applications directory [and initiated with a click].  Note that there are some soft [symbolic] links in the bundle that are resolved automatically when copied with the command "cp -r rufascube.app destination-directory".
+ 
+* Generalized utex package.
+
+**ver 2.6 -- 13jan16**
+
+* Added mousewheel zoom;
+* Added flat letter diagram in upper right.
+
+
+**ver 2.5 -- 1dec15**
+
+ * Replacing C++ version of RufasCube v2.4 with this Ada version;
+ * Improved PNG loader procedure.
+ * (c)-key now updates window title when toggling between RgbCube & RufasCube.
+ * Now 4 choices for the optional single command line parameter:
+
+	* none => start with RufasCube;  user may toggle to RgbCube;
+	* r => start with RgbCube;  user may toggle to RufasCube;
+
+	* g => Solid Green iQube;
+	* yg => Yellow iQube with green dots;
+	* yr => Yellow iQube with red dots;
+	[The objective for any iQube is to convert it to solid red]
+
+
+
+------------------------------------------------
+[1]
+Technical difficulties arose with the thick OpenGLAda binding use previously.  Those difficulties included responsiveness to mouse & keyboard inputs that diminished with time, eventually causing unexplained abort or total loss of user control.
