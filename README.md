@@ -5,7 +5,7 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v4.0.0/rc11apr17.tar.gz
+https://github.com/fastrgv/RufasCube/releases/download/v4.1.0/rc11nov17.tar.gz
 
 
 
@@ -97,7 +97,7 @@ Developer or not, send comments, suggestions or questions to:
 ## Build instructions for RufasCube:
 
 Three [pre-compiled] binary executables are provided, one for Windows, one for gnu/linux and one for OSX.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
-SDL2, SFML, FLAC, ogg, vorbis, & openal.
+GLFW, SFML, FLAC, ogg, vorbis, & openal.
 
 No Makefile is provided, but build scripts are used;  and due to a recent script change, a linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
@@ -110,7 +110,7 @@ build script that requires libraries included in ./libs/win/.
 -------------------------------------------------------
 MacOSX => ocmpss.sh:
 
-build script for generating a portable executable that will run on most OSX platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OSX should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OSX platforms whether or not they have non-standard libraries GLFW or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OSX should be able to rebuild using this script.
 
 ------------------------------------------------------
 GNU/Linux => lcmpd.sh:
@@ -136,7 +136,7 @@ whence the linker should now be able to find what it wants.  But if there is mor
 ## what is special about this project?
 Uses the Ada programming language and fully modern OpenGL methods, with textures, shaders and uniforms.  Achieves version 3.3 core profile contexts.  Compiles and runs on Windows, GNU/Linux and Mac OSX systems.
 
-Focusing on portability and open source freedom, this project relies on a thin SDL2 binding from Dan Vazquez, a thin OpenGL binding from "Lumen", a PNG reader by Stephen Sanguine, and SFML-Audio (because of its elegant audio interface).
+Focusing on portability and open source freedom, this project relies on a thin GLFW binding, a thin OpenGL binding from "Lumen", a PNG reader by Stephen Sanguine, and SFML-Audio (because of its elegant audio interface).
 
 
 
