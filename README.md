@@ -5,7 +5,7 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v4.1.0/rc11nov17.tar.gz
+https://github.com/fastrgv/RufasCube/releases/download/v3.1.0/kc13feb18.tar.gz
 
 
 
