@@ -9,23 +9,42 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.0/rc11nov17.tar.gz
 
 
 
-# RufasCube v 4.1.0 using GLFW Thin-Binding
+# RufasCube using OpenGLAda Binding
 
-## Latest Revision:
+## What's new (newest at top of this list):
 
 
-**ver 4.1.0 -- 11nov17**
+**ver 3.1.0 -- 13feb18**
 
 * added prebuilt executables for msWindows;
-* added working build scripts for msWindows;
-
-* Updated linux scripts to use a) SFML v2.4.2;  b) AdaCore 2017;
-* Note that AdaCore 2017 works on OSX with no changes.
-* Added startup messages listing OGL profile & version;
+* added working build script for msWindows;
+* Updated scripts to use a) SFML v2.4.2;  b) AdaCore 2017;
+* Repaired a memory leak in utex, the OGL text writer.
 
 
-### See complete revision history at end of file.
 
+**ver 3.0.1 -- 28feb17**
+
+* Added mouse wheel zoom.
+* Added (n)-key [nearer] and (f)-key [further].
+* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
+* Removed development-scaffolding code-fragments for cleaner exposition.
+* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
+
+
+**ver 3.0.0 -- 22feb17**
+
+* Created this new branch that uses OpenGLAda from Felix Krause.
+
+
+
+
+
+
+## what is special about this project?
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and GL-lettering.  Achieves version 3.3 core profile contexts, and compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL and the OpenGLAda binding.
+
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a homebrew binding, and a GNAT compiler.
 
 
 ## RufasCube Game Introduction
@@ -41,28 +60,45 @@ As indicated on screen, (h) will toggle a help screen.
 
 Note that (c) will toggle an alternate skin Color.  One looks like a rubic cube coloring, and the other is an RGB coloring where red increases in the X-direction, green increases in the Y-direction, and blue in the Z-direction.
 
-Works on Macs running OSX and PCs running Windows or GNU/Linux.
+Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 
 
 
 
--------------------------------------------
 ## required for running:
+-------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* GNU/Linux or a Mac running OSX;
+* Windows, GNU/Linux or a Mac running OS-X (even ElCapitan);
 * rufascube_gnu is the executable name on GNU/Linux.
-* rufascube_osx is the executable for Mac OSX.
-* rufascube.exe is for Windows.
+* rufascube_osx is the executable for Mac OS-X.
+* rufascube.exe is the executable for Windows.
+
+
+## Open Source libraries required for building:
+-------------------------------------------
+* systems:  Windows, OS-X or GNU/Linux
+* Xcode g++ compiler, if using OS-X;
+* a recent gnat compiler for Windows or Linux;  gnu-ada for OS-X;
+* the included directories contain required Ada interfaces;
+* see example scripts;
+* Note that the Ada interface to SFML-AUDIO (snd4ada_hpp.ads) was created with the command:
+  "g++ -c -fdump-ada-spec -C snd4ada.hpp"
+  which references a minimalistic C++ utility snd4ada.
+
 
 ## Running rufascube:
 -------------------------------------------
-Unzip the archive and you will see a new directory appear, that you may rename.  CD into that directory.
+Unzip the archive.
+
+Windows users may see some error messages pertaining to directory links.  These can be ignored.
+
+Open a commandline terminal, and cd to the install directory.
 
 Linux users type "rufascube_gnu" to start the game.  You may also double click the icon for rufascube_gnu in file manager. 
 
-Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the cube_install_directory, and typing "rufascube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "rufascube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
+Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "rufascube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "rufascube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
-The cube_install_directory should contain a subdirectory named "data".  It contains shaders and sound data.
+The install-directory should contain a subdirectory named "data".  It contains shaders and sound data.
 
 One optional command-line parameter can be either:
 * none => start with RufasCube;  user may toggle to RgbCube;
@@ -87,33 +123,23 @@ Developer or not, send comments, suggestions or questions to:
 
 
 
--------------------------------------------
-## Using the build scripts
-* systems:  Windows, OSX or GNU/Linux
-* Xcode g++ compiler, if using OSX;
-* a recent gnat compiler;
-
-
 ## Build instructions for RufasCube:
 
-Three [pre-compiled] binary executables are provided, one for Windows, one for gnu/linux and one for OSX.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
-GLFW, SFML, FLAC, ogg, vorbis, & openal.
+Two [pre-compiled] binary executables are provided, one for gnu/linux and one for OS-X.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
+SDL2, SFML, FLAC, ogg, vorbis, & openal.
 
 No Makefile is provided, but build scripts are used;  and due to a recent script change, a linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
 Windows => wcmp.bat
 
-build script that requires libraries included in ./libs/win/.
-
-
 -------------------------------------------------------
-MacOSX => ocmpss.sh:
+MacOSX => ocmpss0.sh:
 
-build script for generating a portable executable that will run on most OSX platforms whether or not they have non-standard libraries GLFW or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OSX should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => lcmpd.sh:
+GNU/Linux => lcmpss.sh or lcmpd.sh:
 
 utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
@@ -133,14 +159,6 @@ whence the linker should now be able to find what it wants.  But if there is mor
 
 
 
-## what is special about this project?
-Uses the Ada programming language and fully modern OpenGL methods, with textures, shaders and uniforms.  Achieves version 3.3 core profile contexts.  Compiles and runs on Windows, GNU/Linux and Mac OSX systems.
-
-Focusing on portability and open source freedom, this project relies on a thin GLFW binding, a thin OpenGL binding from "Lumen", a PNG reader by Stephen Sanguine, and SFML-Audio (because of its elegant audio interface).
-
-
-
-
 ------------------------
 ## legal mumbo jumbo:
 
@@ -148,7 +166,7 @@ Focusing on portability and open source freedom, this project relies on a thin G
 RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2015  <fastrgv@gmail.com>
+ Copyright (C) 2018  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -188,86 +206,4 @@ http://www.jaapsch.net/puzzles/blackhole.htm
 https://github.com/fastrgv?tab=repositories
 
 
-## Revision History:
-
-**ver 4.0.0 -- 11apr17**
-
-* Discarded OpenGLAda.  Created this new branch that uses a thin binding to GLFW [1].
-* Improved the getkey code by flushing event queue;
-* New placement of main loop exit responds more quickly to the quit command.
-* Removed OpenGL-deprecated glshademodel function that may cause aborts;
-* Added function dumpGLerrorQueue, and more OGL error checks;  OGL errors can be set to raise exceptions if the boolean flag dbug is set.
-* Fixed gnu libs so GNU Ada compiles as well as AdaCore Ada.
-
-
-**ver 3.0.1 -- 28feb17**
-
-* Added mouse wheel zoom.
-* Added (n)-key [nearer] and (f)-key [further].
-* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
-* Removed development-scaffolding code-fragments for cleaner exposition.
-* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
-
-
-**ver 3.0.0 -- 22feb17**
-
-* Created this new branch that uses OpenGLAda from Felix Krause.
-* Minus mousewheel zoom.
-
-
-**ver 2.6.5 -- 5jan17**
-
-* Updated to use new SFML libs.
-* Corrected a duplicate window glitch.
-* Refined compiler scripts.
-
-
-**ver 2.6.4 -- 31dec16**
-
-* Now using generalized SFML-audio interface code: snd4ada.cpp.
-* Improved build system to be compatible with more linux distros.
-* Improved OpenGL coding to also support Intel embedded graphics hardware.
-
-**ver 2.6.3 -- 03jul16**
-
-* Improved sounds, snd4ada.cpp codes.
-* Updated to use ada-intrinsic pseudo-random numbers, including a time dependent randomization so each run is different.
-
-**ver 2.6.2 -- 12apr16**
-
-* Important library update for Gnu/Linux users on 27% of distros that do not provide FLAC, ogg, vorbis libraries.  Missing softlinks caused run failure.  That is now fixed.
-
-
-**ver 2.61 -- 19feb16**
-
-* Added Mac binary bundle that acts much more like a typical Mac App.  This app is delivered in the installation directory, but could be moved elsewhere, such as your personal Applications directory [and initiated with a click].  Note that there are some soft [symbolic] links in the bundle that are resolved automatically when copied with the command "cp -r rufascube.app destination-directory".
- 
-* Generalized utex package.
-
-**ver 2.6 -- 13jan16**
-
-* Added mousewheel zoom;
-* Added flat letter diagram in upper right.
-
-
-**ver 2.5 -- 1dec15**
-
- * Replacing C++ version of RufasCube v2.4 with this Ada version;
- * Improved PNG loader procedure.
- * (c)-key now updates window title when toggling between RgbCube & RufasCube.
- * Now 4 choices for the optional single command line parameter:
-
-	* none => start with RufasCube;  user may toggle to RgbCube;
-	* r => start with RgbCube;  user may toggle to RufasCube;
-
-	* g => Solid Green iQube;
-	* yg => Yellow iQube with green dots;
-	* yr => Yellow iQube with red dots;
-	[The objective for any iQube is to convert it to solid red]
-
-
-
-------------------------------------------------
-[1]
-Technical difficulties arose with the thick OpenGLAda binding used previously.  Those difficulties included responsiveness to mouse & keyboard inputs that diminished with time, eventually causing unexplained abort or total loss of user control.
 
