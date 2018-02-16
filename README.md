@@ -104,15 +104,19 @@ One optional command-line parameter can be either:
 * none => start with RufasCube;  user may toggle to RgbCube;
 * r => start with RgbCube;  user may toggle to RufasCube;
 
-* g => Solid Green iQube;
+* g => Solid Green iQube;  goal solid red (alphabetical order);
 * yg => Yellow iQube with green dots;
 * yr => Yellow iQube with red dots;
 
-
-The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd & 4th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.
+The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd, 4th & 5th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.  Note, to quickly solve the iQube, shuffle with the (1)-key, then use autosolve by pressing the (s)-key.
 
 As indicated on screen, (h) will show a help screen.  As long as you are not in the iQube mode, the (c) key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom.
 
+More options (as indicated by the help screen):
+* 1-key, ... 5-key  shuffles the cubelets
+* (s)-key or (=)-key solves the cube if done immediately after a shuffle;
+* (n)-key or mousewheel moves cube nearer;
+* (f)-key or mousewheel moves cube further away;
 
 ---------------------------------------------------------------------------
 Open source Ada developers are welcome to help improve or extend this game.
