@@ -13,6 +13,10 @@ https://github.com/fastrgv/RufasCube/releases/download/v3.1.0/kc16feb18.tar.gz
 
 ## What's new (newest at top of this list):
 
+**ver 3.1.1 -- 02mar18**
+
+* Replaced homemade font with True Type FreeFonts, yet still using both a) modern OpenGL methods, and b) Felix Krause's thick OpenGLAda binding.
+
 
 **ver 3.1.0 -- 13feb18**
 
@@ -42,9 +46,9 @@ https://github.com/fastrgv/RufasCube/releases/download/v3.1.0/kc16feb18.tar.gz
 
 
 ## what is special about this project?
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and GL-lettering.  Achieves version 3.3 core profile contexts, and compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL and the OpenGLAda binding.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a homebrew binding, and a GNAT compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
 
 
 ## RufasCube Game Introduction
