@@ -201,6 +201,10 @@ Sounds are from freesound.org and is covered by the Creative Commons Attribution
 ### ImageFiles (*.png)
 For text-textures were created using gimp and are also covered by the GNU GPL v3 license.
 
+### Bindings & Utilities
+Thanks to Dmitry Kazakov and Felix Krause.
+
+
 
 
 ## Acknowledgement:  
