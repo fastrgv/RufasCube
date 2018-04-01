@@ -13,6 +13,14 @@ https://github.com/fastrgv/RufasCube/releases/download/v3.1.1/rc2mar18.tar.gz
 
 ## What's new (newest at top of this list):
 
+
+**ver 3.1.2 -- 02apr18**
+
+* Improved & simplified OSX build;
+* Added GPR build scripts;
+* Improved function names in matutils;
+
+
 **ver 3.1.1 -- 02mar18**
 
 * Replaced homemade font with FreeType Fonts, yet still using both a) modern OpenGL methods, and b) Felix Krause's thick OpenGLAda binding.
