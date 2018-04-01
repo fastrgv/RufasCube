@@ -5,7 +5,7 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v3.1.1/rc2mar18.tar.gz
+https://github.com/fastrgv/RufasCube/releases/download/v4.1.2/kc2apr18.tar.gz
 
 
 
@@ -14,7 +14,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v3.1.1/rc2mar18.tar.gz
 ## What's new (newest at top of this list):
 
 
-**ver 3.1.2 -- 02apr18**
+**ver 4.1.2 -- 02apr18**
 
 * Improved & simplified OSX build;
 * Added GPR build scripts;
