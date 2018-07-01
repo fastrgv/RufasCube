@@ -13,6 +13,11 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.2/kc2apr18.tar.gz
 
 ## What's new (newest at top of this list):
 
+**ver 4.1.3 -- 01jul18**
+
+* Updated linux scripts to utilize AdaCore2018 or gnuAda730;
+* Updated AdaPngLib, AdaZLib;
+* Added 64-bit Windows build;
 
 **ver 4.1.2 -- 02apr18**
 
@@ -102,9 +107,9 @@ Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 -------------------------------------------
 Unzip the archive.
 
-Windows users may see some error messages pertaining to directory links.  These can be ignored.
-
 Open a commandline terminal, and cd to the install directory.
+
+Windows users may type either a) binw32\rufascube32.exe or b) binw64\rufascube64.exe
 
 Linux users type "rufascube_gnu" to start the game.  You may also double click the icon for rufascube_gnu in file manager. 
 
