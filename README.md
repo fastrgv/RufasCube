@@ -1,4 +1,7 @@
-![screenshot](https://github.com/fastrgv/RufasCube/blob/master/rq.gif)
+
+
+![screenshot](https://github.com/fastrgv/RufasCube/blob/master/kcube.gif)
+
 
 # RufasCube
 RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle that runs on Windows, OS-X and GNU Linux.
