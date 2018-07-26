@@ -1,4 +1,4 @@
-
+AutoSolver at work:
 ![screenshot](https://github.com/fastrgv/RufasCube/blob/master/rcube2.gif)
 
 
