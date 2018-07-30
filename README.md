@@ -18,6 +18,11 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.4/kc26jul18.tar.gz
 
 ## What's new (newest at top of this list):
 
+**ver 4.1.5 -- 31jul18**
+
+* Updated linux ogg/vorbis libs;
+* Updated linux, win32 to use SFML v2.5.0;
+* Generalized osx/linux compilation scripts;
 
 **ver 4.1.4 -- 26jul18**
 
