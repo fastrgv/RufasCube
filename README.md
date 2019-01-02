@@ -65,6 +65,8 @@ As indicated on screen, (h) will toggle a help screen.
 Note that (c) will toggle an alternate skin Color.  One looks like a rubic cube coloring, and the other is an RGB coloring where red increases in the X-direction, green increases in the Y-direction, and blue in the Z-direction.
 
 Works on Macs running OS-X and PCs running Windows or GNU/Linux.
+Note that both 32 and 64 bit builds for Windows are delivered.
+
 
 
 
