@@ -9,7 +9,7 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large tar.gz file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v4.1.5/rc29dec18.7z
+https://github.com/fastrgv/RufasCube/releases/download/v4.1.6/kc11mar19.7z
 
 
 
@@ -25,6 +25,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.5/rc29dec18.7z
 * Added closeWindow handler;
 * Upgraded to OpenGLAda-0.7.0;
 * Font now resized per zoom level;
+* High Contrast 3D fonts used now;
 
 See earlier revision history at end of file
 
