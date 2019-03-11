@@ -15,31 +15,18 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.5/rc29dec18.7z
 
 
 
-
 # RufasCube -- using OpenGLAda Binding
 
 ## What's new (newest at top of this list):
 
-**ver 4.1.5 -- 31jul18**
 
-* Updated linux ogg/vorbis libs;
-* Updated linux, win32 to use SFML v2.5.0;
-* Generalized osx/linux compilation scripts;
+**ver 4.1.6 -- 11mar19**
 
-**ver 4.1.4 -- 26jul18**
+* Added closeWindow handler;
+* Upgraded to OpenGLAda-0.7.0;
+* Font now resized per zoom level;
 
-* Added some local shared libs to enhance linux portability;
-* Updated OpenGLAda to Felix Krause's latest (as of 25jul18);
-* Revised all compile scripts, removed unneeded libraries;
-
-
-**ver 4.1.3 -- 01jul18**
-
-* Updated linux scripts to utilize AdaCore2018 or gnuAda730;
-* Updated AdaPngLib, AdaZLib;
-* Added 64-bit Windows build;
-
-## See earlier revision history at end of file
+See earlier revision history at end of file
 
 
 
@@ -47,7 +34,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.5/rc29dec18.7z
 ## what is special about this project?
 Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
 
 
 
@@ -70,27 +57,32 @@ Note that both 32 and 64 bit builds for Windows are delivered.
 
 
 
-
 ## required for running:
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
 * Windows, GNU/Linux or a Mac running OS-X (even ElCapitan);
 * rufascube_gnu is the executable name on GNU/Linux.
 * rufascube_osx is the executable for Mac OS-X.
-* rufascube.exe is the executable for Windows.
+* rufascube32.exe is the 32-bit executable for Windows.
+* rufascube64.exe is the 64-bit executable for Windows.
 
 
-## Running rufascube:
+## Setup & Running rufascube:
 -------------------------------------------
-Windows users please read "windows-setup.txt".  Mac users read "osx-setup.txt".
+
+
+Mac users see "osx-setup.txt".
+Windows users see "windows-setup.txt".
 
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
 
 
-
 Open a commandline terminal, and cd to the install directory.
 
-Windows users may type either a) binw32\rufascube32.exe or b) binw64\rufascube64.exe
+Windows users may type either 
+
+* binw32\rufascube32.exe, or 
+* binw64\rufascube64.exe
 
 Linux users type "rufascube_gnu" to start the game.  You may also double click the icon for rufascube_gnu in file manager. 
 
@@ -110,7 +102,7 @@ One optional command-line parameter can be either:
 
 The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd, 4th & 5th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.  Note, to quickly solve the iQube, shuffle with the (1)-key, then use autosolve by pressing the (s)-key.
 
-As indicated on screen, (h) will show a help screen.  As long as you are not in the iQube mode, the (c) key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom.
+As indicated on screen, (h) will show a help screen.  As long as you are not in the iQube mode, the (c) key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom [2-finger swipe on MacBooks].
 
 More options (as indicated by the help screen):
 
@@ -135,29 +127,30 @@ Developer or not, send comments, suggestions or questions to:
 * a recent gnat compiler for Windows or Linux;  gnu-ada for OS-X;
 * the included directories contain required Ada interfaces;
 * see example scripts;
-* Note that the Ada interface to SFML-AUDIO (snd4ada_hpp.ads) was created with the command:
+* Note that the (mini-binding) Ada interface to SFML-AUDIO (snd4ada_hpp.ads) was created with the command:
   "g++ -c -fdump-ada-spec -C snd4ada.hpp"
   which references a minimalistic C++ utility snd4ada.
 
 
 ## Build instructions for RufasCube:
 
-Two [pre-compiled] binary executables are provided, one for gnu/linux and one for OS-X.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
-SDL2, SFML, FLAC, ogg, vorbis, & openal.
+Four [pre-compiled] binary executables are provided, one for gnu/linux, one for OS-X, and two for Windows.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
+GLFWv3, SFML, FLAC, ogg, vorbis, & openal.
 
 Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
 Windows32 => wcmp32a.bat, wcmp32b.bat
+
 Windows64 => wcmp64a.bat, wcmp64b.bat
 
 -------------------------------------------------------
 MacOSX => ocmpss.sh:
 
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries SDL2 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => lcmpAC18.sh:
+GNU/Linux => lcmpd.sh:
 
 utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
@@ -197,7 +190,7 @@ in order for the APP-bundle to function normally.
 RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2018  <fastrgv@gmail.com>
+ Copyright (C) 2019  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -221,13 +214,10 @@ The particular choice of sound files delivered are not essential to the function
 ### SoundFiles
 Sounds are from freesound.org and is covered by the Creative Commons Attribution noncommercial license documented in the accompanying file creativeCommons.txt.
 
-### ImageFiles (*.png)
-For text-textures were created using gimp and are also covered by the GNU GPL v3 license.
 
 ### Bindings & Utilities
 
-Thanks to Dmitry Kazakov and Felix Krause.
-
+Thanks to Dmitry Kazakov, Felix Krause, and Stephen Sanguine.
 
 
 
@@ -244,6 +234,27 @@ https://github.com/fastrgv?tab=repositories
 
 ## Revision History:
 
+**ver 4.1.5 -- 29dec18**
+
+* Updated linux ogg/vorbis libs;
+* Updated linux, win32 to use SFML v2.5.0;
+* Generalized osx/linux compilation scripts;
+
+
+**ver 4.1.4 -- 26jul18**
+
+* Added some local shared libs to enhance linux portability;
+* Updated OpenGLAda to Felix Krause's latest (as of 25jul18);
+* Revised all compile scripts, removed unneeded libraries;
+
+
+**ver 4.1.3 -- 01jul18**
+
+* Updated linux scripts to utilize AdaCore2018 or gnuAda730;
+* Updated AdaPngLib, AdaZLib;
+* Added 64-bit Windows build;
+
+
 **ver 4.1.2 -- 02apr18**
 
 * Improved & simplified OSX build;
@@ -255,26 +266,5 @@ https://github.com/fastrgv?tab=repositories
 
 * Replaced homemade font with Freetype fonts, yet still using both a) modern OpenGL methods, and b) Felix Krause's thick OpenGLAda binding.
 
-
-**ver 3.1.0 -- 13feb18**
-
-* added prebuilt executables for msWindows;
-* added working build script for msWindows;
-* Updated scripts to use a) SFML v2.4.2;  b) AdaCore 2017;
-* Repaired a memory leak in utex, the OGL text writer.
-
-
-**ver 3.0.1 -- 28feb17**
-
-* Added mouse wheel zoom.
-* Added (n)-key [nearer] and (f)-key [further].
-* Removed OpenGLv3.3-deprecated GL-Enum value that could cause an abort.
-* Removed development-scaffolding code-fragments for cleaner exposition.
-* Updated compile scripts and checked linux version with ldd to ensure a self-contained dynamic library search.  This means it is more likely to run on varied linux distributions without recompilation.
-
-
-**ver 3.0.0 -- 22feb17**
-
-* Created this new branch that uses OpenGLAda from Felix Krause.
 
 
