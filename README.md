@@ -97,8 +97,8 @@ One optional command-line parameter can be either:
 * r => start with RgbCube;  user may toggle to RufasCube;
 
 * g => Solid Green iQube;  goal solid red (alphabetical order);
-* yg => Yellow iQube with green dots;
-* yr => Yellow iQube with red dots;
+* yg => Yellow iQube with green dots;  goal solid red (alphabetical);
+* yr => Yellow iQube with red dots;  goal solid red (alphabetical);
 
 
 The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd, 4th & 5th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.  Note, to quickly solve the iQube, shuffle with the (1)-key, then use autosolve by pressing the (s)-key.
