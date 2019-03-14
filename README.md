@@ -62,10 +62,7 @@ Note that both 32 and 64 bit builds for Windows are delivered.
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
 * Windows, GNU/Linux or a Mac running OS-X (even ElCapitan);
-* rufascube_gnu is the executable name on GNU/Linux.
-* rufascube_osx is the executable for Mac OS-X.
-* rufascube32.exe is the 32-bit executable for Windows.
-* rufascube64.exe is the 64-bit executable for Windows.
+
 
 
 ## Setup & Running rufascube:
