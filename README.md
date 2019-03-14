@@ -7,7 +7,7 @@ AutoSolver at work:
 # RufasCube
 RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle that runs on Windows, OS-X and GNU Linux.
 
-Click on the large tar.gz file under releases for all source & binaries or try this link:
+Click on the large 7zip file under releases for all source & binaries or try this link:
 
 https://github.com/fastrgv/RufasCube/releases/download/v4.1.6/kc11mar19.7z
 
