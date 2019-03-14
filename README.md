@@ -57,17 +57,14 @@ Note that both 32 and 64 bit builds for Windows are delivered.
 
 
 
-
+---------------------------------------------
 ## required for running:
--------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
 * Windows, GNU/Linux or a Mac running OS-X (even ElCapitan);
 
 
-
-## Setup & Running rufascube:
 -------------------------------------------
-
+## Setup & Running rufascube:
 
 Mac users see "osx-setup.txt".
 Windows users see "windows-setup.txt".
@@ -117,9 +114,9 @@ Developer or not, send comments, suggestions or questions to:
 <fastrgv@gmail.com>
 
 
-
+-------------------------------------------------
 ## Open Source libraries required for building:
--------------------------------------------
+
 * systems:  Windows, OS-X or GNU/Linux
 * Xcode g++ compiler, if using OS-X;
 * a recent gnat compiler for Windows or Linux;  gnu-ada for OS-X;
