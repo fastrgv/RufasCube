@@ -1,0 +1,13 @@
+
+Startup command line parameters for rufascube*
+
+.) none => play RufasCube;  may toggle to RgbCube
+.) r    => play RgbCube; may toggle to RufasCube
+
+.) g    => iQube: start with green, goal is red
+.) yg   => iQube: Yellow + Green dots, goal is solid red
+.) yr   => iQube: Yellow + Red dots, goal is solid red
+
+Note that the lettering is arranged so that the solution
+always occurs when alphabetical order is achieved.
+
