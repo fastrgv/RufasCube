@@ -19,6 +19,10 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.6/kc11mar19.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.1.7 -- 26nov19**
+
+* Repaired a library problem with GNU/Linux build that limited portability.
+* No problems with Mac/OSX or M.S. Windows builds.
 
 **ver 4.1.6 -- 11mar19**
 
