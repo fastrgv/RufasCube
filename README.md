@@ -15,9 +15,18 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.7/kc26nov19.7z
 
 
 
-# RufasCube -- using OpenGLAda Binding
+# RufasCube -- using OpenGLAda Binding & FreeType fonts (TTF)
 
 ## What's new (newest at top of this list):
+
+
+**ver 4.1.8 -- 04jan20**
+
+* Improved coding in textman.adb to reduce loop contents, remove duplicates.
+* Improved help screen, key assignments.
+* Improved build scripts for MsWin.
+* Moved code into ./src/, along with ./adabindings/.
+
 
 **ver 4.1.7 -- 26nov19**
 
