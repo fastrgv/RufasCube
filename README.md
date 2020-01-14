@@ -19,6 +19,12 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.8/kc3jan20.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.1.9 -- 14jan20**
+
+* Added Restart option;
+* Corrected logic error during solve.
+* Enhanced portability of linux version game.
+* Updated to GLFW v3.3.1 (released 1jan2020).
 
 **ver 4.1.8 -- 04jan20**
 
