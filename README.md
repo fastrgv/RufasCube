@@ -15,46 +15,22 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.1.9/kc14jan20.7z
 
 
 
-# RufasCube -- using OpenGLAda Binding & FreeType fonts (TTF)
+
+# RufasCube -- using OpenGLAda Binding and FreeType Fonts (TTF).
+
 
 ## What's new (newest at top of this list):
 
-**ver 4.1.9 -- 14jan20**
+**ver 4.2.0 -- 17jan20**
 
-* Added Restart option;
-* Corrected logic error during solve.
-* Enhanced portability of linux version game.
-* Updated to GLFW v3.3.1 (released 1jan2020).
+* Improved font anti-aliasing thru corrected OpenGL code parameters.
+* Added restart=unscramble option.
+* Improved help screen.
+* Elliminated command line parameters.
+* Now allow in-game-switching between 4 alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
 
-**ver 4.1.8 -- 04jan20**
+## See more revision history at end of file
 
-* Improved coding in textman.adb to reduce loop contents, remove duplicates.
-* Improved help screen, key assignments.
-* Improved build scripts for MsWin.
-* Moved code into ./src/, along with ./adabindings/.
-
-
-**ver 4.1.7 -- 26nov19**
-
-* Repaired a library problem with GNU/Linux build that limited portability.
-* No problems with Mac/OSX or M.S. Windows builds.
-
-**ver 4.1.6 -- 11mar19**
-
-* Added closeWindow handler;
-* Upgraded to OpenGLAda-0.7.0;
-* Font now resized per zoom level;
-* High Contrast 3D fonts used now;
-
-See earlier revision history at end of file
-
-
-
-
-## what is special about this project?
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
-
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
 
 
 
@@ -69,21 +45,24 @@ Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
 
 As indicated on screen, (h) will toggle a help screen.
 
-Note that (c) will toggle an alternate skin Color.  One looks like a rubic cube coloring, and the other is an RGB coloring where red increases in the X-direction, green increases in the Y-direction, and blue in the Z-direction.
-
 Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 Note that both 32 and 64 bit builds for Windows are delivered.
 
 
 
----------------------------------------------
+
 ## required for running:
-* graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, GNU/Linux or a Mac running OS-X (even ElCapitan);
-
-
 -------------------------------------------
-## Setup & Running rufascube:
+* graphics card & driver that supports OpenGL version 3.3 or later;
+* Windows, GNU/Linux or a Mac running OS-X;
+* rufascube_gnu is the executable name on GNU/Linux.
+* rufascube_osx is the executable for Mac OS-X.
+* rufascube32.exe is the 32-bit executable for Windows.
+* rufascube64.exe is the 64-bit executable for Windows.
+
+
+## Setup of rufascube:
+-------------------------------------------
 
 Mac users see "osx-setup.txt".
 Windows users see "windows-setup.txt".
@@ -104,26 +83,39 @@ Mac users note that this game may be initiated in two ways also.  First, by open
 
 The install-directory should contain a subdirectory named "data".  It contains shaders and sound data.
 
-One optional command-line parameter can be either:
-
-* none => start with RufasCube;  user may toggle to RgbCube;
-* r => start with RgbCube;  user may toggle to RufasCube;
-
-* g => Solid Green iQube;  goal solid red (alphabetical order);
-* yg => Yellow iQube with green dots;  goal solid red (alphabetical);
-* yr => Yellow iQube with red dots;  goal solid red (alphabetical);
 
 
-The RGB version loads a different "skin" based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  The first, original version has the appearance of a Rubic's cube.  The 3rd, 4th & 5th represent an iQube as discussed above, with a totally different goal of transforming the outer surface of the cube to entirely RED.  Note, to quickly solve the iQube, shuffle with the (1)-key, then use autosolve by pressing the (s)-key.
 
-As indicated on screen, (h) will show a help screen.  As long as you are not in the iQube mode, the (c) key will toggle between the RgbCube and the RufasCube at any time.  The mousewheel controls zoom [2-finger swipe on MacBooks].
+## Running rufascube:
+-------------------------------------------
+
+The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
+
+The first alternate skin has the appearance of a Rubic's cube when solved, after a preliminary scramble.  The other 3 alternate skins, which do not need scrambling (they are already scrambled) represent an iQube with a totally different goal of transforming the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  When solved the layers of letters are in alphabetical order:
+
+a b c		j k l		r s t
+d e f		m   n		u v w
+g h i		o p q		x y z
+
+iQubes can initially be a) solidGreen; b) yellow with green dots; c) yellow with red dots.
+And they all become solid red when solved.
+
+
+As indicated on screen, (h) will show a help screen.  
+
+The mousewheel controls zoom.
 
 More options (as indicated by the help screen):
 
-* 1-key, ... 5-key  shuffles the cubelets
+* (t)-key Toggles between the primary RGB colors and the currently selected alternate skin, without resetting puzzle;
+* (c)-key Cycles thru 4 alternate skins, but this resets puzzle;
+* 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
 * (s)-key or (=)-key solves the cube if done immediately after a shuffle;
-* (n)-key or mousewheel moves cube nearer;
-* (f)-key or mousewheel moves cube further away;
+* (i)-key or mousewheel zooms-In;
+* (o)-key or mousewheel zooms-Out;
+* (r)-key => reset to goal configuration (unscramble);
+
+Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
 
 ---------------------------------------------------------------------------
 Open source Ada developers are welcome to help improve or extend this game.
@@ -133,9 +125,17 @@ Developer or not, send comments, suggestions or questions to:
 <fastrgv@gmail.com>
 
 
--------------------------------------------------
-## Open Source libraries required for building:
 
+## what is special about this project?
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
+
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
+
+
+
+
+## Open Source libraries required for building:
+-------------------------------------------
 * systems:  Windows, OS-X or GNU/Linux
 * Xcode g++ compiler, if using OS-X;
 * a recent gnat compiler for Windows or Linux;  gnu-ada for OS-X;
@@ -182,19 +182,6 @@ sudo ln -s libGL.so.1 libGL.so  (and enter the admin password)
 
 whence the linker should now be able to find what it wants.  But if there is more than one file libGL.so present on your system, make sure you use the best one;  i.e. the one that uses your accelerated-graphic-driver.
 
-## Build using GPR:
-
-Copy the appropriate gpr file versions from the ./buildScriptGpr/ directory.  Then execute the driver.  For example on OSX copy these 3 files:
-
-* soundlib_osx.gpr
-* app_osx.gpr
-* osxgpr.sh
-
-Then execute osxgpr.sh.  Finally, in the case of OSX, you must rename the output to
-
-rufascube_osx
-
-in order for the APP-bundle to function normally.
 
 
 ------------------------
@@ -204,7 +191,7 @@ in order for the APP-bundle to function normally.
 RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2019  <fastrgv@gmail.com>
+ Copyright (C) 2020  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -248,6 +235,35 @@ https://github.com/fastrgv?tab=repositories
 
 ## Revision History:
 
+**ver 4.1.9 -- 14jan20**
+
+* Added Restart option;
+* Corrected logic error during solve.
+* Enhanced portability of linux version game.
+* Updated to GLFW v3.3.1 (released 1jan2020).
+
+
+**ver 4.1.8 -- 04jan20**
+
+* Improved coding in textman.adb to reduce loop contents, remove duplicates.
+* Improved help screen, key assignments.
+* Improved build scripts for MsWin.
+* Moved code into ./src/, along with ./adabindings/.
+
+
+**ver 4.1.7 -- 26nov19**
+
+* Repaired a library problem with GNU/Linux build that limited portability.
+* No problems with Mac/OSX or M.S. Windows builds.
+
+
+**ver 4.1.6 -- 11mar19**
+
+* Added closeWindow handler;
+* Upgraded to OpenGLAda-0.7.0;
+* Font now resized per zoom level;
+* High contrast 3D fonts used now;
+
 **ver 4.1.5 -- 29dec18**
 
 * Updated linux ogg/vorbis libs;
@@ -279,6 +295,5 @@ https://github.com/fastrgv?tab=repositories
 **ver 3.1.1 -- 02mar18**
 
 * Replaced homemade font with Freetype fonts, yet still using both a) modern OpenGL methods, and b) Felix Krause's thick OpenGLAda binding.
-
 
 
