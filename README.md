@@ -21,6 +21,11 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.0/kc17jan20.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.2.1 -- 18jan20**
+
+* Greatly improved Linux portability.
+
+
 **ver 4.2.0 -- 17jan20**
 
 * Improved font anti-aliasing thru corrected OpenGL code parameters.
