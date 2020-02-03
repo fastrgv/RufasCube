@@ -50,7 +50,7 @@ Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
 
 As indicated on screen, (h) will toggle a help screen.
 
-Works on Macs running OS-X and PCs running Windows or GNU/Linux.
+Works on Macs running OS-X and PCs running Windows or GNU/Linux. New linux binary now runs on many linux distros!
 Note that both 32 and 64 bit builds for Windows are delivered.
 
 
