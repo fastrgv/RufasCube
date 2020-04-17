@@ -9,9 +9,7 @@ RufasCube...looks like a rubic cube but it's a slider, not a twister.  A puzzle 
 
 Click on the large 7zip file under releases for all source & binaries or try this link:
 
-https://github.com/fastrgv/RufasCube/releases/download/v4.2.0/kc18jan20.7z
-
-
+https://github.com/fastrgv/RufasCube/releases/download/v4.2.1/kc18apr20.7z
 
 
 
@@ -21,15 +19,11 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.0/kc18jan20.7z
 
 ## What's new (newest at top of this list):
 
+
 **ver 4.2.1 -- 18apr20**
 
 * Assured that OpenGL v3.3 is sufficient to run this app.
 * Added m-key mute-toggle of move-sounds.
-
-
-**ver 4.2.1 -- 18jan20**
-
-* Greatly improved Linux portability.
 
 
 **ver 4.2.0 -- 17jan20**
@@ -46,17 +40,17 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.0/kc18jan20.7z
 
 
 ## RufasCube Game Introduction
-RufasCube is NOT another Rubic's Cube. It's a much simpler slider puzzle that is incrementally solvable.  A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints.
+RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints.
 
 Dragging the cursor rotates the cube for a better view angle.
 
-Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad does the job.
+Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad works too.
 
 Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
 
 As indicated on screen, (h) will toggle a help screen.
 
-Works on Macs running OS-X and PCs running Windows or GNU/Linux. New linux binary now runs on many linux distros!
+Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 Note that both 32 and 64 bit builds for Windows are delivered.
 
 
@@ -68,8 +62,8 @@ Note that both 32 and 64 bit builds for Windows are delivered.
 * Windows, GNU/Linux or a Mac running OS-X;
 * rufascube_gnu is the executable name on GNU/Linux.
 * rufascube_osx is the executable for Mac OS-X.
-* rufascube32.exe is the 32-bit executable for Windows.
-* rufascube64.exe is the 64-bit executable for Windows.
+* binw32\rufascube32.exe is the 32-bit executable for Windows.
+* binw64\rufascube64.exe is the 64-bit executable for Windows.
 
 
 ## Setup of rufascube:
@@ -125,6 +119,7 @@ More options (as indicated by the help screen):
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (r)-key => reset to goal configuration (unscramble);
+* (m)-key => mute-toggle of sliding sounds;
 
 Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
 
@@ -138,10 +133,12 @@ Developer or not, send comments, suggestions or questions to:
 
 
 ## what is special about this project?
+
 Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
 
 Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
 
+The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!  
 
 
 
@@ -165,9 +162,9 @@ GLFWv3, SFML, FLAC, ogg, vorbis, & openal.
 Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-Windows32 => wcmp32a.bat, wcmp32b.bat
+Windows32 => wcmp32.bat
 
-Windows64 => wcmp64a.bat, wcmp64b.bat
+Windows64 => wcmp64.bat
 
 -------------------------------------------------------
 MacOSX => ocmpss.sh:
@@ -177,12 +174,8 @@ build script for generating a portable executable that will run on most OS-X pla
 ------------------------------------------------------
 GNU/Linux => lcmpd.sh:
 
-utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
+utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
-If the delivered linux binary does not run...
-
-* Manually install GNAT GPL from libre.adacore.com/download/.
-* Rerun the compile script lcmp.sh.
 
 
 ### Link Problems during linux build:
