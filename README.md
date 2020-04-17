@@ -21,6 +21,12 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.0/kc18jan20.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.2.1 -- 18apr20**
+
+* Assured that OpenGL v3.3 is sufficient to run this app.
+* Added m-key mute-toggle of move-sounds.
+
+
 **ver 4.2.1 -- 18jan20**
 
 * Greatly improved Linux portability.
