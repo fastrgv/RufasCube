@@ -14,16 +14,23 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.1/kc18apr20.7z
 
 
 
+
 # RufasCube -- using OpenGLAda Binding and FreeType Fonts (TTF).
 
 
 ## What's new (newest at top of this list):
 
 
+**ver 4.2.2 -- 06jun20**
+
+* Fixed sound errors during shuffle.
+* Added "seven", a similar but smaller, easier cubic puzzle.
+
+
 **ver 4.2.1 -- 18apr20**
 
 * Assured that OpenGL v3.3 is sufficient to run this app.
-* Added m-key mute-toggle of move-sounds.
+* Added m-key-toggle to mute move-sounds.
 
 
 **ver 4.2.0 -- 17jan20**
@@ -40,7 +47,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.1/kc18apr20.7z
 
 
 ## RufasCube Game Introduction
-RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints.
+RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
 
 Dragging the cursor rotates the cube for a better view angle.
 
@@ -49,6 +56,8 @@ Clicking the cursor on a cubelet adjacent to the empty space will slide it into 
 Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
 
 As indicated on screen, (h) will toggle a help screen.
+
+Uses FreeType font rendering & TrueType fonts.
 
 Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 Note that both 32 and 64 bit builds for Windows are delivered.
@@ -60,13 +69,13 @@ Note that both 32 and 64 bit builds for Windows are delivered.
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
 * Windows, GNU/Linux or a Mac running OS-X;
-* rufascube_gnu is the executable name on GNU/Linux.
-* rufascube_osx is the executable for Mac OS-X.
-* binw32\rufascube32.exe is the 32-bit executable for Windows.
-* binw64\rufascube64.exe is the 64-bit executable for Windows.
+* cube_gnu,seven_gnu are the executable names on GNU/Linux.
+* cube_osx,seven_osx are the executables for Mac OS-X.
+* binw32\cube32.exe,binw32\seven32.exe are the 32-bit executables for Windows.
+* binw64\cube64.exe,binw64\seven64.exe are the 64-bit executables for Windows.
 
 
-## Setup of rufascube:
+## Setup of cube, seven:
 -------------------------------------------
 
 Mac users see "osx-setup.txt".
@@ -74,24 +83,25 @@ Windows users see "windows-setup.txt".
 
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
 
-
 Open a commandline terminal, and cd to the install directory.
 
 Windows users may type either 
 
-* binw32\rufascube32.exe, or 
-* binw64\rufascube64.exe
+* binw32\cube32.exe, or 
+* binw64\cube64.exe
 
-Linux users type "rufascube_gnu" to start the game.  You may also double click the icon for rufascube_gnu in file manager. 
+Linux users type "cube_gnu" to start the game.  You may also double click the icon for cube_gnu in file manager. 
 
-Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "rufascube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "rufascube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
+Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "cube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "cube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
+
+Likewise for "seven".
 
 The install-directory should contain a subdirectory named "data".  It contains shaders and sound data.
 
 
 
 
-## Running rufascube:
+## Running rufascube(3x3x3),seven(2x2x2):
 -------------------------------------------
 
 The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
@@ -122,6 +132,30 @@ More options (as indicated by the help screen):
 * (m)-key => mute-toggle of sliding sounds;
 
 Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
+
+### hint
+You may find it easier to focus your attention on the 2D representation at the side of the screen.
+
+
+
+## Running seven(2x2x2), differences:
+-------------------------------------------
+
+This simpler, smaller cube has fewer options.
+
+As indicated on screen, (h) will show a help screen.  The (c) key will toggle between the RGB and Vadasz mode at any time.  Zoom is controlled by the mousewheel, or the zoom keys i/o (In,Out).
+
+More options (as indicated by the help screen):
+
+* 1-key, ... 5-key  shuffles the cubelets
+* (s)-key or (=)-key solves the cube if done immediately after a shuffle;
+* (i)-key or mousewheel zooms-In;
+* (o)-key or mousewheel zooms-Out;
+* (m)-key => mute-toggle of sliding sounds;
+
+
+
+
 
 ---------------------------------------------------------------------------
 Open source Ada developers are welcome to help improve or extend this game.
@@ -154,27 +188,29 @@ The linux-build is among very few modern OpenGL games where a single pre-built e
   which references a minimalistic C++ utility snd4ada.
 
 
-## Build instructions for RufasCube:
+## Build instructions for RufasCube or Seven:
 
-Four [pre-compiled] binary executables are provided, one for gnu/linux, one for OS-X, and two for Windows.  The linux binary, rufascube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
+In the following, the "appName" can be either "cube" or "seven".
+
+Four [pre-compiled] binary executables are provided, one for gnu/linux, one for OS-X, and two for Windows.  The linux binary, cube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
 GLFWv3, SFML, FLAC, ogg, vorbis, & openal.
 
 Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-Windows32 => wcmp32.bat
+Windows32 => wcmp32.bat appName
 
-Windows64 => wcmp64.bat
+Windows64 => wcmp64.bat appName
 
 -------------------------------------------------------
-MacOSX => ocmpss.sh:
+MacOSX => ocmpss.sh appName
 
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 or SFML installed.  I used this to build the executable that I deliver, named rufascube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 or SFML installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => lcmpd.sh:
+GNU/Linux => lcmpd.sh appName
 
-utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named rufascube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
+utilizes the uncommon relocatable libraries (mainly GLFW, SFML) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named cube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
 
 
@@ -210,7 +246,7 @@ RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
  You may read the full text of the GNU General Public License
  at <http://www.gnu.org/licenses/>.
 
-## Media Files for RufasCube:
+## Media Files for RufasCube,Seven:
 
 
 ### General Note
@@ -228,6 +264,9 @@ Thanks to Dmitry Kazakov, Felix Krause, and Stephen Sanguine.
 
 ## Acknowledgement:  
 In february of 2015 I discovered that RufasCube could be considered a software implementation of a Hungarian "Vadasz" 3x3x3 cube, or another similar puzzle called an iQube, whose goals are an all green or all red outer color.  Peter's Black Hole and Magic Jack are still other incarnations.
+
+I discovered on 10feb2015 that Seven seems to be a software implementation of a Hungarian "Vadasz" 2x2x2 cube.
+
 
 For further iqube analysis see:
 http://www.jaapsch.net/puzzles/blackhole.htm
