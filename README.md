@@ -110,6 +110,8 @@ The first alternate skin has the appearance of a Rubic's cube when solved, after
 
 
 
+
+-----------
 a b c
 
 d e f
@@ -117,18 +119,23 @@ d e f
 g h i
 
 
+-----------
 j k l
 
-m   n
+m @ n
 
 o p q
 
 
+-----------
 r s t
 
 u v w
 
 x y z
+
+-----------
+
 
 
 
