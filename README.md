@@ -95,6 +95,7 @@ Linux users type "cube_gnu" to start the game.  You may also double click the ic
 Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "cube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "cube.app" icon named "RufasCube".  Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
 **Likewise for "seven"**
+EG: binw32\seven32.exe or seven_osx or seven_gnu
 
 The install-directory should contain a subdirectory named "data".  It contains shaders and sound data.
 
