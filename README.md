@@ -109,17 +109,27 @@ The primary RGB "skin" is based on an RGB color scheme whereby position along X,
 The first alternate skin has the appearance of a Rubic's cube when solved, after a preliminary scramble.  The other 3 alternate skins, which do not need scrambling (they are already scrambled) represent an iQube with a totally different goal of transforming the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  When solved the layers of letters are in alphabetical order:
 
 
+
 a b c
+
 d e f
+
 g h i
 
+
 j k l
+
 m   n
+
 o p q
 
+
 r s t
+
 u v w
+
 x y z
+
 
 
 
