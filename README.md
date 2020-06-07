@@ -111,30 +111,22 @@ The first alternate skin has the appearance of a Rubic's cube when solved, after
 
 
 
------------
-a b c
-
-d e f
-
-g h i
-
 
 -----------
-j k l
-
-m @ n
-
-o p q
-
-
+	a b c
+	d e f
+	g h i
 -----------
-r s t
-
-u v w
-
-x y z
-
+	j k l
+	m @ n
+	o p q
 -----------
+	r s t
+	u v w
+	x y z
+-----------
+
+
 
 
 
