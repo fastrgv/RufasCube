@@ -101,7 +101,7 @@ The install-directory should contain a subdirectory named "data".  It contains s
 
 
 
-## Running rufascube(3x3x3),seven(2x2x2):
+## Running rufascube(3x3x3):
 -------------------------------------------
 
 The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
