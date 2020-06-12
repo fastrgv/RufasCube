@@ -47,7 +47,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v.4.2.2/kc6jun20.7z
 
 
 ## RufasCube Game Introduction
-RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
+RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains the smaller 2x2x2 cube called "RufasSeven", that is an easier version.
 
 Dragging the cursor rotates the cube for a better view angle.
 
