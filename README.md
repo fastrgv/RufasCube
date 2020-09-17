@@ -86,10 +86,7 @@ Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
 
 Open a commandline terminal, and cd to the install directory.
 
-Windows users may type either 
-
-* binw32\cube32.exe, or 
-* binw64\cube64.exe
+Windows users may type either "seven.bat" or "cube.bat".
 
 Linux users type "cube_gnu" to start the game.  You may also double click the icon for cube_gnu in file manager. 
 
