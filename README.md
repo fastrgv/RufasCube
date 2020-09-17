@@ -20,21 +20,22 @@ https://github.com/fastrgv/RufasCube/releases/download/v.4.2.2/kc6jun20.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.2.3 -- 18sep20**
+* Updated all glfw libs to v3.3.2.
+* Restored 8th [unseen] cubelet when seven is solved in RGB mode.
+* Added Windows launchers "cube.bat"/"seven.bat".
 
 **ver 4.2.2 -- 06jun20**
-
 * Fixed sound errors during shuffle.
 * Added "seven", a similar but smaller, easier cubic puzzle.
 
 
 **ver 4.2.1 -- 18apr20**
-
 * Assured that OpenGL v3.3 is sufficient to run this app.
 * Added m-key-toggle to mute move-sounds.
 
 
 **ver 4.2.0 -- 17jan20**
-
 * Improved font anti-aliasing thru corrected OpenGL code parameters.
 * Added restart=unscramble option.
 * Improved help screen.
