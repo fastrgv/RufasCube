@@ -20,6 +20,11 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.3/kc18sep20.7z
 
 ## What's new (newest at top of this list):
 
+**ver 4.2.4 -- 26oct20**
+* Completely removed sfml-audio sound;
+* Far simpler sound system is now being used.
+
+
 **ver 4.2.3 -- 18sep20**
 * Updated all glfw libs to v3.3.2.
 * Restored 8th [unseen] cubelet when seven is solved in RGB mode.
