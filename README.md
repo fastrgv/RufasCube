@@ -16,10 +16,17 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.2.4/kc26oct20.7z
 
 
 
-# RufasCube -- using OpenGLAda Binding and FreeType Fonts (TTF).
+
+# RufasCube with OpenAL Sound
+# using OpenGLAda Binding, FreeType Fonts (TTF).
 
 
 ## What's new (newest at top of this list):
+
+
+**ver 4.3.0 -- 9nov20**
+* Completely new sound system using OpenAL binding;
+* Simpler, identical code for 3 platforms; simpler build process.
 
 
 **ver 4.2.4 -- 26oct20**
@@ -73,12 +80,16 @@ Windows users see "windows-setup.txt".
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
 
 Open a commandline terminal, and cd to the install directory.
-
+------------------------------------------------------------------
 Windows users can type "seven.bat" or "cube.bat". 
 
+------------------------------------------------------------------
 Linux users type "seven_gnu" or "cube_gnu" to start the game.  
 You may also double click the icon for cube_gnu in file manager. 
 
+The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile.
+
+------------------------------------------------------------------
 Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "seven_osx" or "cube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "seven.app" or "cube.app" icons named "RufasSeven" or "RufasCube".  
 Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
@@ -315,4 +326,5 @@ https://github.com/fastrgv?tab=repositories
 * Upgraded to OpenGLAda-0.7.0;
 * Font now resized per zoom level;
 * High contrast 3D fonts used now;
+
 
