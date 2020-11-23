@@ -144,7 +144,7 @@ More options (as indicated by the help screen):
 Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
 
 ### hint
-You may find it easier to focus your attention on the 2D representation at the side of the screen.
+You may find it easier to focus your attention on the 2D representation at the side of the screen. Remember, in contrast to a Rubik's Cube, this puzzle is incrementally solvable; eg. layer-by-layer.
 
 
 
