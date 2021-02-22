@@ -16,6 +16,7 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.3.0/kc9nov20.7z
 
 
 
+
 # RufasCube with OpenAL Sound
 # using OpenGLAda Binding, FreeType Fonts (TTF).
 
@@ -64,7 +65,7 @@ Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 ## required for running:
 -------------------------------------------
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, GNU/Linux or a Mac running OS-X;
+* Windows, GNU/Linux or a Mac running OS-X >= 10.13(sep2017);
 * cube_gnu,seven_gnu are the executable names on GNU/Linux.
 * cube_osx,seven_osx are the executables for Mac OS-X.
 * binw32\cube32.exe,binw32\seven32.exe are the executables for Windows.
@@ -144,7 +145,7 @@ More options (as indicated by the help screen):
 Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
 
 ### hint
-You may find it easier to focus your attention on the 2D representation at the side of the screen. Remember, in contrast to a Rubik's Cube, this puzzle is incrementally solvable; eg. layer-by-layer.
+You may find it easier to focus your attention on the 2D representation at the side of the screen.
 
 
 
@@ -180,7 +181,7 @@ Developer or not, send comments, suggestions or questions to:
 
 Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, SFML-Audio with a custom binding, and a GNAT compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and a GNAT compiler.
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!  
 
@@ -199,21 +200,21 @@ The linux-build is among very few modern OpenGL games where a single pre-built e
 In the following, the "appName" can be either "cube" or "seven".
 
 Three [pre-compiled] binary executables are provided, one for gnu/linux, one for OS-X, and one for Windows.  The linux binary, cube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
-GLFWv3, SFML, FLAC, ogg, vorbis, & openal.
+GLFWv3, & openal.
 
 Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-Windows32 => wcmp32.bat appName or wbuildAll.bat
+Windows64 => wbuildAll.bat
 
 
 -------------------------------------------------------
-MacOSX => ocmpss.sh appName OR obuildAll.sh
+MacOSX => obuildAll.sh
 
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 or SFML installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
 
 ------------------------------------------------------
-GNU/Linux => lcmpd.sh appName OR lbuildAll.sh
+GNU/Linux => lbuildAll.sh
 
 utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named cube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
 
@@ -230,7 +231,7 @@ whence the linker should now be able to find what it wants.  But if there is mor
 
 
 ------------------------
-## legal mumbo jumbo:
+## License:
 
 
 RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
@@ -325,5 +326,4 @@ https://github.com/fastrgv?tab=repositories
 * Upgraded to OpenGLAda-0.7.0;
 * Font now resized per zoom level;
 * High contrast 3D fonts used now;
-
 
