@@ -17,26 +17,23 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.3.0/kc9nov20.7z
 
 
 
-# RufasCube with OpenAL Sound
-# using OpenGLAda Binding, FreeType Fonts (TTF).
+
+# RufasCube -- using OpenAL Sound, OpenGLAda, FreeType Fonts (TTF).
 
 
 ## What's new (newest at top of this list):
 
 
+**ver 4.3.1 -- 02mar21**
+
+* Created "live" autosolver for "cube" initiated at any time by the s-key.
+
+* Added important guard statements to sound code.
+
+
 **ver 4.3.0 -- 9nov20**
 * Completely new sound system using OpenAL binding;
 * Simpler, identical code for 3 platforms; simpler build process.
-
-
-**ver 4.2.4 -- 26oct20**
-* Completely removed sfml-audio sound;
-* Far simpler sound system is now being used.
-
-**ver 4.2.3 -- 18sep20**
-* Updated all glfw libs to v3.3.2.
-* Restored 8th [unseen] cubelet when seven is solved in RGB mode.
-* Added Windows launchers "cube.bat"/"seven.bat".
 
 
 ## See more revision history at end of file
@@ -136,13 +133,15 @@ More options (as indicated by the help screen):
 * (t)-key Toggles between the primary RGB colors and the currently selected alternate skin, without resetting puzzle;
 * (c)-key Cycles thru 4 alternate skins, but this resets puzzle;
 * 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
-* (s)-key or (=)-key solves the cube if done immediately after a shuffle;
+* (s)-key or (=)-key single-steps toward a solution at any time;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (r)-key => reset to goal configuration (unscramble);
 * (m)-key => mute-toggle of sliding sounds;
 
-Finally, the keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
+The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
+
+Linux users note: the Windows executable files will likely run under WINE on linux.
 
 ### hint
 You may find it easier to focus your attention on the 2D representation at the side of the screen.
@@ -159,7 +158,7 @@ As indicated on screen, (h) will show a help screen.  The (c) key will toggle be
 More options (as indicated by the help screen):
 
 * 1-key, ... 5-key  shuffles the cubelets
-* (s)-key or (=)-key solves the cube if done immediately after a shuffle;
+* (s)-key or (=)-key solves the seven-cube ONLY if done immediately after a shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (m)-key => mute-toggle of sliding sounds;
@@ -183,8 +182,9 @@ Uses the Ada programming language and fully modern OpenGL methods with textures,
 
 Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and a GNAT compiler.
 
-The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!  
+The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
+Finally, the new live autosolver for "cube" is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It shuts down whenever you feel more confident and begin making moves on your own. Solutions are quickly found but may not be minimal in highly shuffled puzzles.
 
 
 ## Open Source libraries required for building:
@@ -205,7 +205,7 @@ GLFWv3, & openal.
 Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
 
 -------------------------------------------------------
-Windows64 => wbuildAll.bat
+Windows64 => wbuildAll.bat (ensure 64-bit AdaCore is in path)
 
 
 -------------------------------------------------------
@@ -234,10 +234,10 @@ whence the linker should now be able to find what it wants.  But if there is mor
 ## License:
 
 
-RufasCube itself is covered by the GNU GPL v3 as indicated in the sources:
+RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2020  <fastrgv@gmail.com>
+ Copyright (C) 2021  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -284,15 +284,22 @@ https://github.com/fastrgv?tab=repositories
 
 ## Revision History:
 
+**ver 4.2.4 -- 26oct20**
+* Completely removed sfml-audio sound;
+* Far simpler sound system is now being used.
+
+**ver 4.2.3 -- 18sep20**
+* Updated all glfw libs to v3.3.2.
+* Restored 8th [unseen] cubelet when seven is solved in RGB mode.
+* Added Windows launchers "cube.bat"/"seven.bat".
+
 **ver 4.2.2 -- 06jun20**
 * Fixed sound errors during shuffle.
 * Added "seven", a similar but smaller, easier cubic puzzle.
 
-
 **ver 4.2.1 -- 18apr20**
 * Assured that OpenGL v3.3 is sufficient to run this app.
 * Added m-key-toggle to mute move-sounds.
-
 
 **ver 4.2.0 -- 17jan20**
 * Improved font anti-aliasing thru corrected OpenGL code parameters.
@@ -301,13 +308,11 @@ https://github.com/fastrgv?tab=repositories
 * Elliminated command line parameters.
 * Now allow in-game-switching between 4 alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
 
-
 **ver 4.1.9 -- 14jan20**
 * Added Restart option;
 * Corrected logic error during solve.
 * Enhanced portability of linux version game.
 * Updated to GLFW v3.3.1 (released 1jan2020).
-
 
 **ver 4.1.8 -- 04jan20**
 * Improved coding in textman.adb to reduce loop contents, remove duplicates.
@@ -315,15 +320,14 @@ https://github.com/fastrgv?tab=repositories
 * Improved build scripts for MsWin.
 * Moved code into ./src/, along with ./adabindings/.
 
-
 **ver 4.1.7 -- 26nov19**
 * Repaired a library problem with GNU/Linux build that limited portability.
 * No problems with Mac/OSX or M.S. Windows builds.
-
 
 **ver 4.1.6 -- 11mar19**
 * Added closeWindow handler;
 * Upgraded to OpenGLAda-0.7.0;
 * Font now resized per zoom level;
 * High contrast 3D fonts used now;
+
 
