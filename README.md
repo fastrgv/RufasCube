@@ -18,26 +18,22 @@ https://github.com/fastrgv/RufasCube/releases/download/v4.3.1/kc01mar21.7z
 
 
 
-# RufasCube -- using OpenAL Sound, OpenGLAda, FreeType Fonts (TTF).
 
+# RufasCube using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
-## What's new (newest at top of this list):
+## Latest Revision:
 
-
-**ver 4.3.1 -- 02mar21**
-
-* Created "live" autosolver for "cube" initiated at any time by the s-key.
-
-* Added important guard statements to sound code.
-
-
-**ver 4.3.0 -- 9nov20**
+**ver 4.4.0 -- 03mar21**
+* Switch back to GLFW thin binding.
+* Created "live" autosolver initiated at any time by the (s)-key.
+* Undo shuffle is still available by the (=)-key.
 * Completely new sound system using OpenAL binding;
-* Simpler, identical code for 3 platforms; simpler build process.
+* Updated all glfw libs to v3.3.3.
+* Assured that OpenGL v3.3 is sufficient to run this app.
+* Improved font anti-aliasing thru corrected OpenGL code parameters.
+* Added restart=unscramble option.
 
-
-## See more revision history at end of file
-
+### See complete revision history at end of file.
 
 
 
@@ -59,16 +55,17 @@ Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 
 
 
-## required for running:
+
 -------------------------------------------
+## required for running:
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, GNU/Linux or a Mac running OS-X >= 10.13(sep2017);
-* cube_gnu,seven_gnu are the executable names on GNU/Linux.
-* cube_osx,seven_osx are the executables for Mac OS-X.
-* binw32\cube32.exe,binw32\seven32.exe are the executables for Windows.
+* Windows, GNU/Linux or a Mac running OSX >= 10.13 (sep2017);
+* cube_gnu, seven_gnu are the executable names on GNU/Linux.
+* cube_osx, seven_osx are the executables for Mac OSX.
+* cube.bat, seven.bat are for Windows.
 
 
-## Setup of cube, seven:
+## Setup of Rufascube:
 -------------------------------------------
 
 Mac users see "osx-setup.txt".
@@ -76,29 +73,31 @@ Windows users see "windows-setup.txt".
 
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
 
+
 Open a commandline terminal, and cd to the install directory.
-------------------------------------------------------------------
-Windows users can type "seven.bat" or "cube.bat". 
 
-------------------------------------------------------------------
-Linux users type "seven_gnu" or "cube_gnu" to start the game.  
-You may also double click the icon for cube_gnu in file manager. 
+--------------------------------------------------------------
+Windows users may type:
 
-The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile.
+* cube.bat
+or
+* seven.bat
 
-------------------------------------------------------------------
+--------------------------------------------------------------
 Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "seven_osx" or "cube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "seven.app" or "cube.app" icons named "RufasSeven" or "RufasCube".  
 Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
-**Likewise for "seven"**
-EG: seven.bat or seven_osx or seven_gnu.
+--------------------------------------------------------------
+Linux users type:
 
-The install-directory should contain a subdirectory named "data".  It contains shaders and sound data.
+* cube_gnu
+or
+* seven_gnu
+
+The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile.
 
 
-
-
-## Running rufascube(3x3x3):
+## Running Rufascube (3x3x3):
 -------------------------------------------
 
 The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
@@ -133,7 +132,8 @@ More options (as indicated by the help screen):
 * (t)-key Toggles between the primary RGB colors and the currently selected alternate skin, without resetting puzzle;
 * (c)-key Cycles thru 4 alternate skins, but this resets puzzle;
 * 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
-* (s)-key or (=)-key single-steps toward a solution at any time;
+* (s)-key single-steps toward a solution at any time;
+* (=)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (r)-key => reset to goal configuration (unscramble);
@@ -141,10 +141,14 @@ More options (as indicated by the help screen):
 
 The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
 
+### hint #1
 Linux users note: the Windows executable files will likely run under WINE on linux.
 
-### hint
+### hint #2
 You may find it easier to focus your attention on the 2D representation at the side of the screen.
+
+### hint #3
+After a shuffle, the #steps to unshuffle shows at bottom of screen. At this point you can press the (s)-key to see the #steps to the live solver solution. If unshuffling is quicker, then continue pressing the (=)-key to unshuffle; otherwise continue pressing the (s)-key to solve.
 
 
 
@@ -157,11 +161,14 @@ As indicated on screen, (h) will show a help screen.  The (c) key will toggle be
 
 More options (as indicated by the help screen):
 
-* 1-key, ... 5-key  shuffles the cubelets
-* (s)-key or (=)-key solves the seven-cube ONLY if done immediately after a shuffle;
+* 1-key, ... 5-key  shuffles the cubelets;
+* (c)-key Cycles thru 2 alternate skins;
+* (s)-key single-steps toward a solution at any time;
+* (=)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (m)-key => mute-toggle of sliding sounds;
+
 
 
 
@@ -176,26 +183,29 @@ Developer or not, send comments, suggestions or questions to:
 
 
 
+
+
 ## what is special about this project?
 
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts and the OpenGLAda binding.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the OpenGLAda binding from Felix Krause, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and a GNAT compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and a GNAT compiler.
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
-Finally, the new live autosolver for "cube" is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It shuts down whenever you feel more confident and begin making moves on your own. Solutions are quickly found but may not be minimal in highly shuffled puzzles.
+Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It shuts down whenever you feel more confident and begin making moves on your own. Solutions are quickly found but may not always be minimal.
 
 
-## Open Source libraries required for building:
+
 -------------------------------------------
-* systems:  Windows, OS-X or GNU/Linux
-* a recent gnat compiler for Windows or Linux;  gnu-ada for OS-X;
-* the included directories contain required Ada interfaces;
-* see example scripts;
+## Using the build scripts
+* systems:  Windows, OSX or GNU/Linux
+* Xcode g++ compiler, if using OSX;
+* a recent gnat compiler;
 
 
 ## Build instructions for RufasCube or Seven:
+
 
 In the following, the "appName" can be either "cube" or "seven".
 
@@ -228,8 +238,6 @@ sudo ln -s libGL.so.1 libGL.so  (and enter the admin password)
 
 whence the linker should now be able to find what it wants.  But if there is more than one file libGL.so present on your system, make sure you use the best one;  i.e. the one that uses your accelerated-graphic-driver.
 
-
-
 ------------------------
 ## License:
 
@@ -252,7 +260,9 @@ RufasCube is covered by the GNU GPL v3 as indicated in the sources:
  You may read the full text of the GNU General Public License
  at <http://www.gnu.org/licenses/>.
 
-## Media Files for RufasCube,Seven:
+
+
+## Media Files for RufasCube:
 
 
 ### General Note
@@ -261,21 +271,18 @@ The particular choice of sound files delivered are not essential to the function
 ### SoundFiles
 Sounds are from freesound.org and is covered by the Creative Commons Attribution noncommercial license documented in the accompanying file creativeCommons.txt.
 
-
-### Bindings & Utilities
-
-Thanks to Dmitry Kazakov, Felix Krause, and Stephen Sanguine.
+### ImageFiles (*.png)
+For text-textures were created using gimp and are also covered by the GNU GPL v3 license.
 
 
 
 ## Acknowledgement:  
 In february of 2015 I discovered that RufasCube could be considered a software implementation of a Hungarian "Vadasz" 3x3x3 cube, or another similar puzzle called an iQube, whose goals are an all green or all red outer color.  Peter's Black Hole and Magic Jack are still other incarnations.
 
-I discovered on 10feb2015 that Seven seems to be a software implementation of a Hungarian "Vadasz" 2x2x2 cube.
-
-
 For further iqube analysis see:
 http://www.jaapsch.net/puzzles/blackhole.htm
+
+I also discovered that the 2x2x2 cube seems to be a software implementation of a Hungarian "Vadasz" cube.
 
 ----------------------------------------------
 ## Best Download Site for all my games:
@@ -284,50 +291,18 @@ https://github.com/fastrgv?tab=repositories
 
 ## Revision History:
 
-**ver 4.2.4 -- 26oct20**
-* Completely removed sfml-audio sound;
-* Far simpler sound system is now being used.
 
-**ver 4.2.3 -- 18sep20**
-* Updated all glfw libs to v3.3.2.
-* Restored 8th [unseen] cubelet when seven is solved in RGB mode.
-* Added Windows launchers "cube.bat"/"seven.bat".
-
-**ver 4.2.2 -- 06jun20**
-* Fixed sound errors during shuffle.
-* Added "seven", a similar but smaller, easier cubic puzzle.
-
-**ver 4.2.1 -- 18apr20**
-* Assured that OpenGL v3.3 is sufficient to run this app.
-* Added m-key-toggle to mute move-sounds.
-
-**ver 4.2.0 -- 17jan20**
-* Improved font anti-aliasing thru corrected OpenGL code parameters.
-* Added restart=unscramble option.
+**ver 4.x.x -- 2020**
 * Improved help screen.
-* Elliminated command line parameters.
-* Now allow in-game-switching between 4 alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
+* Added m-key-toggle to mute move-sounds.
+* Simpler, identical code for 3 platforms; simpler build process.
+* Added 2x2x2 cube called "Seven", to delivery.
+* Elliminated command line parameters. Allows in-game-switching between alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
 
-**ver 4.1.9 -- 14jan20**
-* Added Restart option;
-* Corrected logic error during solve.
-* Enhanced portability of linux version game.
-* Updated to GLFW v3.3.1 (released 1jan2020).
 
-**ver 4.1.8 -- 04jan20**
-* Improved coding in textman.adb to reduce loop contents, remove duplicates.
-* Improved help screen, key assignments.
-* Improved build scripts for MsWin.
-* Moved code into ./src/, along with ./adabindings/.
+**ver 2.5 -- 1dec15**
 
-**ver 4.1.7 -- 26nov19**
-* Repaired a library problem with GNU/Linux build that limited portability.
-* No problems with Mac/OSX or M.S. Windows builds.
+* First Ada version.
 
-**ver 4.1.6 -- 11mar19**
-* Added closeWindow handler;
-* Upgraded to OpenGLAda-0.7.0;
-* Font now resized per zoom level;
-* High contrast 3D fonts used now;
-
+------------------------------------------------
 
