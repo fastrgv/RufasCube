@@ -72,7 +72,8 @@ Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 Mac users see "osx-setup.txt".
 Windows users see "windows-setup.txt".
 
-Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this.
+Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
+
 
 
 Open a commandline terminal, and cd to the install directory.
