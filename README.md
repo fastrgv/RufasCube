@@ -12,6 +12,7 @@ Click on the large 7zip file under releases for all source & binaries or try thi
 
 https://github.com/fastrgv/RufasCube/releases/download/v4.4.0/rc3mar21.7z
 
+Type "7z x filename" to extract the archive.
 
 
 
