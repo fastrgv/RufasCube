@@ -25,6 +25,10 @@ Type "7z x filename.7z" to extract the archive.
 
 ## Latest Revision:
 
+**ver 4.4.1 -- 17mar21**
+* Improved cube bkgd coloring, lettering.
+* Repaired problem with shuffle level 5.
+
 **ver 4.4.0 -- 03mar21**
 * Switch back to GLFW thin binding.
 * Created "live" autosolver initiated at any time by the (s)-key.
