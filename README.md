@@ -58,6 +58,14 @@ Uses FreeType font rendering & TrueType fonts.
 
 Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 
+Note that the Windows executables can be run on linux using wine:
+
+	* wine cmd < cube.bat
+	* wine cmd < seven.bat
+	* wine binw64/cube.exe
+	* wine binw64/seven.exe
+
+
 
 
 
