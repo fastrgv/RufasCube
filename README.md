@@ -27,6 +27,10 @@ Type "7z x filename.7z" to extract the archive.
 
 ## Latest Revision:
 
+**ver 4.4.2 -- 14oct2021**
+* Enabled normal window exit.
+* Updated libraries.
+
 **ver 4.4.1 -- 17mar21**
 * Improved cube bkgd coloring, lettering.
 * Repaired problem with shuffle level 5.
