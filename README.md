@@ -117,7 +117,10 @@ Linux users type:
 or
 * seven_gnu
 
-The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile, or run the Windows executables under wine, as mentioned above.
+The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile, or run the Windows executables under wine, as mentioned above, thusly:
+	* wine binw64/cube.exe
+	* wine binw64/seven.exe
+
 
 
 ## Running Rufascube (3x3x3):
