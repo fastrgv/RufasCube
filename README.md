@@ -23,13 +23,21 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+
 # RufasCube using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
 
+
+**ver 4.4.3 -- 21oct2021**
+* Improved adaOpenAL binding.
+* Buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
+* Besides Win64, I now provide a Win32 build, to support older platforms.
+
 **ver 4.4.2 -- 14oct2021**
 * Enabled normal window exit.
 * Updated libraries.
+
 
 **ver 4.4.1 -- 17mar21**
 * Improved cube bkgd coloring, lettering.
@@ -45,9 +53,7 @@ Type "7z x filename.7z" to extract the archive.
 * Improved font anti-aliasing thru corrected OpenGL code parameters.
 * Added restart=unscramble option.
 
-#### See complete revision history at end of file.
-
-
+### See complete revision history at end of file.
 
 
 
@@ -65,14 +71,6 @@ As indicated on screen, (h) will toggle a help screen.
 Uses FreeType font rendering & TrueType fonts.
 
 Works on Macs running OS-X and PCs running Windows or GNU/Linux.
-
-Note that the Windows executables can be run on linux using wine:
-
-	* wine cmd < cube.bat
-	* wine cmd < seven.bat
-	* wine binw64/cube.exe
-	* wine binw64/seven.exe
-
 
 
 
@@ -96,7 +94,6 @@ Windows users see "windows-setup.txt".
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
 
 
-
 Open a commandline terminal, and cd to the install directory.
 
 --------------------------------------------------------------
@@ -117,9 +114,12 @@ Linux users type:
 or
 * seven_gnu
 
-The distributed linux executables require glibc v2.14 or newer.  That means if your distribution is older, it might not run, and you will need to recompile, or run the Windows executables under wine, as mentioned above, thusly:
+But the distributed linux executables require glibc v2.14 or newer.  That means if your distribution is an older one, it may not run. In that case, the easiest alternative is to install WINE. The Windows executables will run on linux using wine thusly:
 	* wine binw64/cube.exe
 	* wine binw64/seven.exe
+
+
+Windows users note: I suggest that you DO NOT try running the linux executables under WSL [Windows Subsystem for Linux; that mode is not supported]. Simply use the windows version.
 
 
 
@@ -227,7 +227,7 @@ Finally, the new "live" autosolver is quite sophisticated. It allows invocation 
 ## Using the build scripts
 * systems:  Windows, OSX or GNU/Linux
 * Xcode g++ compiler, if using OSX;
-* a recent gnat compiler;
+* a recent free Ada compiler: GNU/GNAT or AdaCore.
 
 
 ## Build instructions for RufasCube or Seven:
@@ -235,10 +235,7 @@ Finally, the new "live" autosolver is quite sophisticated. It allows invocation 
 
 In the following, the "appName" can be either "cube" or "seven".
 
-Three [pre-compiled] binary executables are provided, one for gnu/linux, one for OS-X, and one for Windows.  The linux binary, cube_gnu, is intended to run in the presence of the directory "libs", which contains some dynamically loaded libraries that can be, but need not be present on a target system:
-GLFWv3, & openal.
-
-Normally, the following build scripts are used;  and due to a recent script change, a Windows or linux build machine need not have a C++ compiler installed.  Only GNAT is required.
+The build scripts work for AdaCore Ada [with its own g++], but should also work for GNAT from the GNU Compiler Collection, with minor changes.
 
 -------------------------------------------------------
 Windows64 => wbuildAll.bat (ensure 64-bit AdaCore is in path)
@@ -331,4 +328,3 @@ https://github.com/fastrgv?tab=repositories
 * First Ada version.
 
 ------------------------------------------------
-
