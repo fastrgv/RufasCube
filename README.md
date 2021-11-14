@@ -28,7 +28,13 @@ Type "7z x filename.7z" to extract the archive.
 
 ## Latest Revision:
 
+**ver 4.4.4 -- 15nov2021**
 
+* Updated glext64.lib.
+* Cleaned up libs; prepped rpath for GNAT.
+* Updated all GLFW libs to newer [static] version, & scripts.
+* Elliminated OpenGL-mipmap error on nvidia nouveau drivers.
+* 
 **ver 4.4.3 -- 21oct2021**
 * Improved adaOpenAL binding.
 * Buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
