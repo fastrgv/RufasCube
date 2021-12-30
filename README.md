@@ -24,9 +24,18 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+
+
 # RufasCube using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
+
+
+
+**ver 4.4.5 -- 31dec2021**
+
+* Minor changes to WAV files. Additional license texts added.
+* Updated OSX build scripts.
 
 **ver 4.4.4 -- 15nov2021**
 
@@ -34,38 +43,28 @@ Type "7z x filename.7z" to extract the archive.
 * Cleaned up libs; prepped rpath for GNAT.
 * Updated all GLFW libs to newer [static] version, & scripts.
 * Elliminated OpenGL-mipmap error on nvidia nouveau drivers.
-* 
-**ver 4.4.3 -- 21oct2021**
-* Improved adaOpenAL binding.
-* Buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
-* Besides Win64, I now provide a Win32 build, to support older platforms.
 
-**ver 4.4.2 -- 14oct2021**
-* Enabled normal window exit.
-* Updated libraries.
-
-
-**ver 4.4.1 -- 17mar21**
-* Improved cube bkgd coloring, lettering.
-* Repaired problem with shuffle level 5.
-
-**ver 4.4.0 -- 03mar21**
-* Switch back to GLFW thin binding.
-* Created "live" autosolver initiated at any time by the (s)-key.
-* Undo shuffle is still available by the (=)-key.
-* Completely new sound system using OpenAL binding;
-* Updated all glfw libs to v3.3.3.
-* Assured that OpenGL v3.3 is sufficient to run this app.
-* Improved font anti-aliasing thru corrected OpenGL code parameters.
-* Added restart=unscramble option.
 
 ### See complete revision history at end of file.
 
 
 
-## RufasCube Game Introduction
+## RufasCube Game Description
 RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
 
+Works on Macs running OS-X and PCs running Windows or GNU/Linux.
+
+-----------------------------------------------------------
+Featuring
+
+	* no installation
+	* no dependencies
+	* simply unzip in your Downloads directory, and run.
+-----------------------------------------------------------
+
+
+
+## Introduction
 Dragging the cursor rotates the cube for a better view angle.
 
 Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad works too.
@@ -76,8 +75,6 @@ As indicated on screen, (h) will toggle a help screen.
 
 Uses FreeType font rendering & TrueType fonts.
 
-Works on Macs running OS-X and PCs running Windows or GNU/Linux.
-
 
 
 
@@ -86,9 +83,6 @@ Works on Macs running OS-X and PCs running Windows or GNU/Linux.
 ## required for running:
 * graphics card & driver that supports OpenGL version 3.3 or later;
 * Windows, GNU/Linux or a Mac running OSX >= 10.13 (sep2017);
-* cube_gnu, seven_gnu are the executable names on GNU/Linux.
-* cube_osx, seven_osx are the executables for Mac OSX.
-* cube.bat, seven.bat are for Windows.
 
 
 ## Setup of Rufascube:
@@ -110,7 +104,13 @@ or
 * seven.bat
 
 --------------------------------------------------------------
-Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing "seven_osx" or "cube_osx" on the command line.  Second by navigating to the installation directory in Finder and clicking the "seven.app" or "cube.app" icons named "RufasSeven" or "RufasCube".  
+Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing:
+
+* "seven_osx" 
+or 
+* "cube_osx" 
+
+on the command line.  Second by navigating to the installation directory in Finder and clicking the "seven.app" or "cube.app" icons named "RufasSeven" or "RufasCube".  
 Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
 --------------------------------------------------------------
@@ -120,7 +120,8 @@ Linux users type:
 or
 * seven_gnu
 
-But the distributed linux executables require glibc v2.14 or newer.  That means if your distribution is an older one, it may not run. In that case, the easiest alternative is to install WINE. The Windows executables will run on linux using wine thusly:
+But if these do not run on linux, the easiest alternative is to install WINE. The Windows executables will run on linux using wine thusly:
+
 	* wine binw64/cube.exe
 	* wine binw64/seven.exe
 
@@ -219,9 +220,9 @@ Developer or not, send comments, suggestions or questions to:
 
 ## what is special about this project?
 
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada or AdaCore-Ada.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and a GNAT compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and an Ada compiler.
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
@@ -232,7 +233,6 @@ Finally, the new "live" autosolver is quite sophisticated. It allows invocation 
 -------------------------------------------
 ## Using the build scripts
 * systems:  Windows, OSX or GNU/Linux
-* Xcode g++ compiler, if using OSX;
 * a recent free Ada compiler: GNU/GNAT or AdaCore.
 
 
@@ -241,22 +241,32 @@ Finally, the new "live" autosolver is quite sophisticated. It allows invocation 
 
 In the following, the "appName" can be either "cube" or "seven".
 
-The build scripts work for AdaCore Ada [with its own g++], but should also work for GNAT from the GNU Compiler Collection, with minor changes.
+The build scripts work for AdaCore Ada [with its own g++], but should also work for GNAT from the GNU Compiler Collection, with minor changes. See gcmp.sh.
 
 -------------------------------------------------------
-Windows64 => wbuildAll.bat (ensure 64-bit AdaCore is in path)
+Windows32 => w32buildAll.bat
+Windows64 => wbuildAll.bat
+
+Note that the [hard-to-find] 64-bit library file glext64.lib was built using the AdaCore g++ compiler versus glext-src code obtained from Source Forge. You can use it as-is; you need not recreate it.  See glext64.7z.
 
 
 -------------------------------------------------------
 MacOSX => obuildAll.sh
 
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X, and AdaCore Ada installed should be able to rebuild using this script.
+
+Note: ./alternateBuildScripts/GNocmp.sh shows how to build on OSX using GNU/Ada, and without Xcode, or AdaCore.
+
 
 ------------------------------------------------------
 GNU/Linux => lbuildAll.sh
 
-utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run in the presence of ./libs, whether or not your system has those libraries installed.  This was used to create the executable named cube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that this script (lcmpss.sh) will work for you.  The intent was to provide all the needed interface/include files under ./libs/.
-Please see also the file "gnatUserNote.txt".
+utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/gnu/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run  whether or not your system has those libraries installed.  This was used to create the executable named cube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that these scripts will work for you.
+As a last resort, you can use wine to run the Windows EXEs:
+
+	wine binw32/cube.exe
+	wine binw32/seven.exe
+
 
 
 ### Link Problems during linux build:
@@ -266,6 +276,7 @@ On a linux build machine, you might have minor link errors, depending on its con
 sudo ln -s libGL.so.1 libGL.so  (and enter the admin password)
 
 whence the linker should now be able to find what it wants.  But if there is more than one file libGL.so present on your system, make sure you use the best one;  i.e. the one that uses your accelerated-graphic-driver.
+
 
 ------------------------
 ## License:
@@ -293,14 +304,21 @@ RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 ## Media Files for RufasCube:
 
+It is my intention to use media with copyrights or licenses that are compatible with GPLv3. Please notify me if you believe there is an incompatibility, and it will be removed. Eg: a CC-by-NC license is NOT GPL compatible.
 
-### General Note
-The particular choice of sound files delivered are not essential to the function of the game and are easily replaced.  This software is primarily intended as a tutorial example of modern OpenGL methods.  The only requirements are that sounds be in WAV format.
 
-### SoundFiles
-Sounds are from freesound.org and is covered by the Creative Commons CC0 license.
 
-### ImageFiles (*.png)
+
+### SoundFiles .WAV
+Sounds are from freesound.org and is covered by the Creative Commons CC0 license documented in the accompanying file ./docs/creativeCommonsCC0.txt.
+
+### ShaderFiles: .glsl, .vs, .fs, .fragmentshader, .vertexshader
+GPL v3 license.
+
+### TTF files
+GPL v3 license.
+
+### ImageFiles .png [defunct since ttf]
 For text-textures were created using gimp and are also covered by the GNU GPL v3 license.
 
 
@@ -314,12 +332,36 @@ http://www.jaapsch.net/puzzles/blackhole.htm
 I also discovered that the 2x2x2 cube seems to be a software implementation of a Hungarian "Vadasz" cube.
 
 ----------------------------------------------
-## Best Download Site for all my games:
+## Download Sites for all my games:
 https://github.com/fastrgv?tab=repositories
-
+https://www.indiedb.com/members/fastrgv/games
+https://fastrgv.itch.io
+https://sourceforge.net/u/fastrgv/profile/
+https://gamejolt.com/@fastrgv/games
 
 ## Revision History:
 
+**ver 4.4.3 -- 21oct2021**
+* Improved adaOpenAL binding code...rufascube is now buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
+* Besides Win64, I now provide a Win32 build, to support older platforms.
+
+**ver 4.4.2 -- 14oct2021**
+* Enabled normal window exit.
+* Updated libraries.
+
+**ver 4.4.1 -- 17mar21**
+* Improved cube bkgd coloring, lettering.
+* Repaired problem with shuffle level 5.
+
+**ver 4.4.0 -- 03mar21**
+* Switch back to GLFW thin binding.
+* Created "live" autosolver initiated at any time by the (s)-key.
+* Undo shuffle is still available by the (=)-key.
+* Completely new sound system using OpenAL binding;
+* Updated all glfw libs to v3.3.3.
+* Assured that OpenGL v3.3 is sufficient to run this app.
+* Improved font anti-aliasing thru corrected OpenGL code parameters.
+* Added restart=unscramble option.
 
 **ver 4.x.x -- 2020**
 * Improved help screen.
@@ -328,9 +370,9 @@ https://github.com/fastrgv?tab=repositories
 * Added 2x2x2 cube called "Seven", to delivery.
 * Elliminated command line parameters. Allows in-game-switching between alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
 
-
 **ver 2.5 -- 1dec15**
-
 * First Ada version.
 
 ------------------------------------------------
+
+
