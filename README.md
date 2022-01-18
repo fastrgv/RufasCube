@@ -32,6 +32,14 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+**ver 4.4.6 -- 18jan2022**
+
+* Eliminated unused Frameworks directory
+* Updated linux libs to use static libfreetype.a & libpng16.a
+* Updated Windows builds to freetype v2.11.1 DLLs (w32,w64).
+* Updated libglfw.
+
+
 **ver 4.4.5 -- 31dec2021**
 
 * Minor changes to WAV files. Additional license texts added.
