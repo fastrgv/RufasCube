@@ -31,6 +31,11 @@ Type "7z x filename.7z" to extract the archive.
 ## Latest Revision:
 
 
+**ver 4.4.7 -- 16apr2022**
+
+* Converted linux libraries to exclusively shared format for portability.
+* Alternate script for GNU-Ada also works, now.
+
 
 **ver 4.4.6 -- 18jan2022**
 
