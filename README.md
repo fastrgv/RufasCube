@@ -242,6 +242,9 @@ The linux-build is among very few modern OpenGL games where a single pre-built e
 
 Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It shuts down whenever you feel more confident and begin making moves on your own. Solutions are quickly found but may not always be minimal.
 
+Open source Ada developers are welcome to help improve or extend this app.
+Developer or not, send comments, suggestions or questions to:
+fastrgv@gmail.com
 
 
 -------------------------------------------
