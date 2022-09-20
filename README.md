@@ -32,6 +32,11 @@ Type "7z x filename.7z" to extract the archive.
 
 ## Latest Revision:
 
+**ver 4.5.0 -- 20sep2022**
+
+* Restored Win64 build, now using MSYS2 & mingw64 on Windows.
+
+
 **ver 4.4.8 -- 16sep2022**
 
 * Removed Win64 build.
