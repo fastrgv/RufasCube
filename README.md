@@ -32,6 +32,11 @@ Type "7z x filename.7z" to extract the archive.
 
 ## Latest Revision:
 
+**ver 4.5.1 -- 30sep2022**
+
+* Now using simpler-to-setup GNU Ada for Win64.
+
+
 **ver 4.5.0 -- 20sep2022**
 
 * Restored Win64 build, now using MSYS2 & mingw64 on Windows.
