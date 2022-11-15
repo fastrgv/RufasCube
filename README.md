@@ -28,51 +28,16 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
-# RufasCube using OpenAL audio, GLFW, FreeType Fonts (TTF)
+
+
+# RufasCube -- using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
 
-**ver 4.5.1 -- 30sep2022**
 
-* Now using simpler-to-setup GNU Ada for Win64.
+**ver 4.5.2 -- 16nov2022**
 
-
-**ver 4.5.0 -- 20sep2022**
-
-* Restored Win64 build, now using MSYS2 & mingw64 on Windows.
-
-
-**ver 4.4.8 -- 16sep2022**
-
-* Removed Win64 build.
-* Now using GNU Ada rather than defunct AdaCore compiler.
-
-
-**ver 4.4.7 -- 16apr2022**
-
-* Converted linux libraries to exclusively shared format for portability.
-* Alternate script for GNU-Ada also works, now.
-
-
-**ver 4.4.6 -- 18jan2022**
-
-* Eliminated unused Frameworks directory
-* Updated linux libs to use static libfreetype.a & libpng16.a
-* Updated Windows builds to freetype v2.11.1 DLLs (w32,w64).
-* Updated libglfw.
-
-
-**ver 4.4.5 -- 31dec2021**
-
-* Minor changes to WAV files. Additional license texts added.
-* Updated OSX build scripts.
-
-**ver 4.4.4 -- 15nov2021**
-
-* Updated glext64.lib.
-* Cleaned up libs; prepped rpath for GNAT.
-* Updated all GLFW libs to newer [static] version, & scripts.
-* Elliminated OpenGL-mipmap error on nvidia nouveau drivers.
+* Fixed embedded solvers.
 
 
 ### See complete revision history at end of file.
@@ -89,9 +54,8 @@ Featuring
 
 	* no installation
 	* no dependencies
-	* simply unzip in your Downloads directory, and run.
-	* or unzip onto a USB flash drive formatted to match your system, and run.
-
+	* simply unzip in your Downloads directory, and run;
+	* or unzip onto a USB flash drive [w/same file format] and run.
 -----------------------------------------------------------
 
 
@@ -131,9 +95,11 @@ Open a commandline terminal, and cd to the install directory.
 --------------------------------------------------------------
 Windows users may type:
 
-* cube.bat
+* cube32.bat or cube64.bat
 or
-* seven.bat
+* seven32.bat or seven64.bat
+
+In other words, there are both 32-bit and 64-bit Windows executables delivered. They all should work.
 
 --------------------------------------------------------------
 Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing:
@@ -154,8 +120,8 @@ or
 
 But if these do not run on linux, the easiest alternative is to install WINE. The Windows executables will run on linux using wine thusly:
 
-	* wine binw64/cube.exe
-	* wine binw64/seven.exe
+	* wine binw32/cube.exe
+	* wine binw32/seven.exe
 
 
 Windows users note: I suggest that you DO NOT try running the linux executables under WSL [Windows Subsystem for Linux; that mode is not supported]. Simply use the windows version.
@@ -164,6 +130,8 @@ Windows users note: I suggest that you DO NOT try running the linux executables 
 
 ## Running Rufascube (3x3x3):
 -------------------------------------------
+
+Shuffling the cubelets uses random numbers and is not very efficient. Typically unshuffling is a much more lengthy process than solving, and must be done before making any moves on your own. Solving can be started at any time, and can be stopped whenever you want to try to manually complete the solution.
 
 The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
 
@@ -204,7 +172,17 @@ More options (as indicated by the help screen):
 * (r)-key => reset to goal configuration (unscramble);
 * (m)-key => mute-toggle of sliding sounds;
 
-The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. x is rightward, y is upward, and z is outward.
+
+The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. +X is rightward, +Y is upward, and +Z is outward(toward viewer):
+
+* (f)-key => +Z (forward)
+* (b)-key => -Z (backward)
+* (up)-key => +Y
+* (dn)-key => -Y
+* (lf)-key => -X
+* (rt)-key => +X
+* (a)-key => toggles Axes
+
 
 ### hint #1
 Linux users note: the Windows executable files will likely run under WINE on linux.
@@ -252,7 +230,7 @@ Developer or not, send comments, suggestions or questions to:
 
 ## what is special about this project?
 
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada or AdaCore-Ada.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada.
 
 Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and an Ada compiler.
 
@@ -265,10 +243,15 @@ Developer or not, send comments, suggestions or questions to:
 fastrgv@gmail.com
 
 
+
 -------------------------------------------
 ## Using the build scripts
 * systems:  Windows, OSX or GNU/Linux
-* a recent free Ada compiler: GNU/GNAT or AdaCore.
+* a recent Ada compiler;  eg. GNU-Ada...try this source:
+
+https://github.com/alire-project/GNAT-FSF-builds/releases
+
+
 
 
 ## Build instructions for RufasCube or Seven:
@@ -276,21 +259,19 @@ fastrgv@gmail.com
 
 In the following, the "appName" can be either "cube" or "seven".
 
-The build scripts work for AdaCore Ada [with its own g++], but should also work for GNAT from the GNU Compiler Collection, with minor changes. See gcmp.sh.
+The build scripts work for GNU Ada [with its own g++].
 
 -------------------------------------------------------
-Windows32 => w32buildAll.bat
-Windows64 => wbuildAll.bat
+Windows32 => setpath32.bat + wbuildAll.bat
+Windows64 => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
 
-Note that the [hard-to-find] 64-bit library file glext64.lib was built using the AdaCore g++ compiler versus glext-src code obtained from Source Forge. You can use it as-is; you need not recreate it.  See glext64.7z.
 
 
 -------------------------------------------------------
 MacOSX => obuildAll.sh
 
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X, and AdaCore Ada installed should be able to rebuild using this script.
+build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script after GNU Ada has been installed. (Xcode is not used.) You might need to adjust the PATH environment-variable to reflect your actual installation directory (ocmp.sh).
 
-Note: ./alternateBuildScripts/GNocmp.sh shows how to build on OSX using GNU/Ada, and without Xcode, or AdaCore.
 
 
 ------------------------------------------------------
@@ -304,14 +285,6 @@ As a last resort, you can use wine to run the Windows EXEs:
 
 
 
-### Link Problems during linux build:
-
-On a linux build machine, you might have minor link errors, depending on its configuration.  If you are missing "libz", you can simply copy "libz.so" from the AdaCore ~/lib/ directory into /usr/local/lib/.  If "libGL" cannot be found, this literally means "libGL.so" was absent.  But you might have "libGL.so.1" present.  In this case, simply create a softlink by changing to the libGL directory, then type the line:
-
-sudo ln -s libGL.so.1 libGL.so  (and enter the admin password)
-
-whence the linker should now be able to find what it wants.  But if there is more than one file libGL.so present on your system, make sure you use the best one;  i.e. the one that uses your accelerated-graphic-driver.
-
 
 ------------------------
 ## License:
@@ -320,7 +293,7 @@ whence the linker should now be able to find what it wants.  But if there is mor
 RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2021  <fastrgv@gmail.com>
+ Copyright (C) 2022  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -376,6 +349,37 @@ https://gamejolt.com/@fastrgv/games
 
 ## Revision History:
 
+**ver 4.5.1 -- 30sep2022**
+* Now using simpler-to-setup GNU Ada for Win64.
+
+**ver 4.5.0 -- 20sep2022**
+* Restored Win64 build, now using MSYS2 & mingw64 on Windows.
+
+**ver 4.4.8 -- 16sep2022**
+* Removed Win64 build.
+* Now using GNU Ada rather than defunct AdaCore compiler.
+
+**ver 4.4.7 -- 16apr2022**
+* Reverted linux libraries to exclusively shared format for portability.
+* Alternate script for GNU-Ada also works, now.
+
+**ver 4.4.6 -- 18jan2022**
+* Eliminated unused Frameworks directory
+* Updated linux libs to use static libfreetype.a & libpng16.a
+* Updated Windows builds to freetype v2.11.1 DLLs (w32,w64).
+* Updated libglfw.
+
+**ver 4.4.5 -- 31dec2021**
+* Minor changes to WAV files. Additional license texts added.
+* Updated OSX build scripts.
+
+**ver 4.4.4 -- 15nov2021**
+* Updated glext64.lib.
+* Cleaned up libs; prepped rpath for GNAT.
+* Updated all GLFW libs to newer [static] version, & scripts.
+* Eliminated OpenGL-mipmap error on nvidia nouveau drivers.
+
+
 **ver 4.4.3 -- 21oct2021**
 * Improved adaOpenAL binding code...rufascube is now buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
 * Besides Win64, I now provide a Win32 build, to support older platforms.
@@ -403,7 +407,7 @@ https://gamejolt.com/@fastrgv/games
 * Added m-key-toggle to mute move-sounds.
 * Simpler, identical code for 3 platforms; simpler build process.
 * Added 2x2x2 cube called "Seven", to delivery.
-* Elliminated command line parameters. Allows in-game-switching between alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
+* Eliminated command line parameters. Allows in-game-switching between alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
 
 **ver 2.5 -- 1dec15**
 * First Ada version.
