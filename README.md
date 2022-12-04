@@ -26,13 +26,15 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
-
-
-
-
 # RufasCube -- using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
+
+
+**ver 4.5.3 -- 5dec2022**
+
+* Further improved embedded solvers.
+* Discontinued support of Mac/OSX. My 2013 macBookPro died!
 
 
 **ver 4.5.2 -- 16nov2022**
@@ -47,7 +49,7 @@ Type "7z x filename.7z" to extract the archive.
 ## RufasCube Game Description
 RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
 
-Works on Macs running OS-X and PCs running Windows or GNU/Linux.
+Works on PCs running Windows or GNU/Linux.
 
 -----------------------------------------------------------
 Featuring
@@ -63,9 +65,9 @@ Featuring
 ## Introduction
 Dragging the cursor rotates the cube for a better view angle.
 
-Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.  On MacBooks, a 2-finger tap on the touchpad works too.
+Clicking the cursor on a cubelet adjacent to the empty space will slide it into that empty space.  On laptops you may also hit (return) when the cursor is on the cubelet of choice to select and slide it.
 
-Zooming can be done with a mousewheel, or a 2-finger drag on MacBooks.
+Zooming can also be done with a mousewheel.
 
 As indicated on screen, (h) will toggle a help screen.
 
@@ -78,13 +80,12 @@ Uses FreeType font rendering & TrueType fonts.
 -------------------------------------------
 ## required for running:
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, GNU/Linux or a Mac running OSX >= 10.13 (sep2017);
+* Windows & GNU/Linux 
 
 
 ## Setup of Rufascube:
 -------------------------------------------
 
-Mac users see "osx-setup.txt".
 Windows users see "windows-setup.txt".
 
 Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
@@ -101,15 +102,6 @@ or
 
 In other words, there are both 32-bit and 64-bit Windows executables delivered. They all should work.
 
---------------------------------------------------------------
-Mac users note that this game may be initiated in two ways also.  First, by opening a terminal, navigating to the install-directory, and typing:
-
-* "seven_osx" 
-or 
-* "cube_osx" 
-
-on the command line.  Second by navigating to the installation directory in Finder and clicking the "seven.app" or "cube.app" icons named "RufasSeven" or "RufasCube".  
-Note also that a 2-finger-swipe simulates the mouse wheel on a MacBook.
 
 --------------------------------------------------------------
 Linux users type:
@@ -165,11 +157,11 @@ More options (as indicated by the help screen):
 * (t)-key Toggles between the primary RGB colors and the currently selected alternate skin, without resetting puzzle;
 * (c)-key Cycles thru 4 alternate skins, but this resets puzzle;
 * 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
-* (s)-key single-steps toward a solution at any time;
-* (=)-key single-steps toward a solution by undoing the shuffle;
+* (=)-key single-steps toward a solution at any time;
+* (u)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
-* (r)-key => reset to goal configuration (unscramble);
+* (r)-key => reset to goal configuration;
 * (m)-key => mute-toggle of sliding sounds;
 
 
@@ -181,7 +173,7 @@ The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/me
 * (dn)-key => -Y
 * (lf)-key => -X
 * (rt)-key => +X
-* (a)-key => toggles Axes
+* (a)-key => toggles Axes display
 
 
 ### hint #1
@@ -191,7 +183,7 @@ Linux users note: the Windows executable files will likely run under WINE on lin
 You may find it easier to focus your attention on the 2D representation at the side of the screen.
 
 ### hint #3
-After a shuffle, the #steps to unshuffle shows at bottom of screen. At this point you can press the (s)-key to see the #steps to the live solver solution. If unshuffling is quicker, then continue pressing the (=)-key to unshuffle; otherwise continue pressing the (s)-key to solve.
+After a shuffle, the #steps to unshuffle shows at bottom of screen. At this point you can press the (=)-key to see the #steps to the live solver solution. If unshuffling is quicker, then press the (u)-key to unshuffle;  otherwise continue pressing the (=)-key to step towards the solution. Note that, unlike the de-shuffler, the true solver can be used at any time.
 
 
 
@@ -206,8 +198,8 @@ More options (as indicated by the help screen):
 
 * 1-key, ... 5-key  shuffles the cubelets;
 * (c)-key Cycles thru 2 alternate skins;
-* (s)-key single-steps toward a solution at any time;
-* (=)-key single-steps toward a solution by undoing the shuffle;
+* (=)-key single-steps toward a solution at any time;
+* (u)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (m)-key => mute-toggle of sliding sounds;
@@ -230,13 +222,13 @@ Developer or not, send comments, suggestions or questions to:
 
 ## what is special about this project?
 
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux and Mac OS-X systems.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada.
 
 Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and an Ada compiler.
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
-Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It shuts down whenever you feel more confident and begin making moves on your own. Solutions are quickly found but may not always be minimal.
+Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It can be ignored whenever you feel more confident and want to begin making moves on your own. Solutions are quickly found but may not always be minimal.
 
 Open source Ada developers are welcome to help improve or extend this app.
 Developer or not, send comments, suggestions or questions to:
@@ -246,7 +238,7 @@ fastrgv@gmail.com
 
 -------------------------------------------
 ## Using the build scripts
-* systems:  Windows, OSX or GNU/Linux
+* systems:  Windows or GNU/Linux
 * a recent Ada compiler;  eg. GNU-Ada...try this source:
 
 https://github.com/alire-project/GNAT-FSF-builds/releases
@@ -262,15 +254,11 @@ In the following, the "appName" can be either "cube" or "seven".
 The build scripts work for GNU Ada [with its own g++].
 
 -------------------------------------------------------
-Windows32 => setpath32.bat + wbuildAll.bat
-Windows64 => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
+* Windows32 => setpath32.bat + wbuildAll.bat
+
+* Windows64 => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
 
 
-
--------------------------------------------------------
-MacOSX => obuildAll.sh
-
-build script for generating a portable executable that will run on most OS-X platforms whether or not they have non-standard libraries GLFWv3 installed.  I used this to build the executable that I deliver, named cube_osx.  Macs with a recent but standard configuration of OS-X should be able to rebuild using this script after GNU Ada has been installed. (Xcode is not used.) You might need to adjust the PATH environment-variable to reflect your actual installation directory (ocmp.sh).
 
 
 
@@ -369,49 +357,5 @@ https://gamejolt.com/@fastrgv/games
 * Updated Windows builds to freetype v2.11.1 DLLs (w32,w64).
 * Updated libglfw.
 
-**ver 4.4.5 -- 31dec2021**
-* Minor changes to WAV files. Additional license texts added.
-* Updated OSX build scripts.
-
-**ver 4.4.4 -- 15nov2021**
-* Updated glext64.lib.
-* Cleaned up libs; prepped rpath for GNAT.
-* Updated all GLFW libs to newer [static] version, & scripts.
-* Eliminated OpenGL-mipmap error on nvidia nouveau drivers.
-
-
-**ver 4.4.3 -- 21oct2021**
-* Improved adaOpenAL binding code...rufascube is now buildable with [GNU Compiler Collection] GNAT, as well as all AdaCore versions.
-* Besides Win64, I now provide a Win32 build, to support older platforms.
-
-**ver 4.4.2 -- 14oct2021**
-* Enabled normal window exit.
-* Updated libraries.
-
-**ver 4.4.1 -- 17mar21**
-* Improved cube bkgd coloring, lettering.
-* Repaired problem with shuffle level 5.
-
-**ver 4.4.0 -- 03mar21**
-* Switch back to GLFW thin binding.
-* Created "live" autosolver initiated at any time by the (s)-key.
-* Undo shuffle is still available by the (=)-key.
-* Completely new sound system using OpenAL binding;
-* Updated all glfw libs to v3.3.3.
-* Assured that OpenGL v3.3 is sufficient to run this app.
-* Improved font anti-aliasing thru corrected OpenGL code parameters.
-* Added restart=unscramble option.
-
-**ver 4.x.x -- 2020**
-* Improved help screen.
-* Added m-key-toggle to mute move-sounds.
-* Simpler, identical code for 3 platforms; simpler build process.
-* Added 2x2x2 cube called "Seven", to delivery.
-* Eliminated command line parameters. Allows in-game-switching between alternate skins and the primary RGB coloring. Thusly, all variants may be played as a Mac-Bundle on OSX.
-
-**ver 2.5 -- 1dec15**
-* First Ada version.
-
-------------------------------------------------
 
 
