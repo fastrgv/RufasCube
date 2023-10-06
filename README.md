@@ -26,9 +26,20 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+
+
 # RufasCube -- using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
+
+
+
+**ver 4.5.4 -- 6oct2023**
+
+* Restored OSX build...but without a bundle.
+* Added graceful-shutdown exception-handlers.
+* Improved priority parameter in cube solver.
+* Dropped Win32 build.
 
 
 **ver 4.5.3 -- 5dec2022**
@@ -49,7 +60,7 @@ Type "7z x filename.7z" to extract the archive.
 ## RufasCube Game Description
 RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
 
-Works on PCs running Windows or GNU/Linux.
+Works on PCs running Windows, OSX, or GNU/Linux.
 
 -----------------------------------------------------------
 Featuring
@@ -80,15 +91,20 @@ Uses FreeType font rendering & TrueType fonts.
 -------------------------------------------
 ## required for running:
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows & GNU/Linux 
+* Windows, OSX, & GNU/Linux 
 
 
 ## Setup of Rufascube:
 -------------------------------------------
-
+Mac/OSX users see "osx-setup.txt".
 Windows users see "windows-setup.txt".
 
-Unzip the archive.  On Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
+Unzip the archive.  
+
+* On Linux & Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
+
+* On OSX, the command-line for Keka works thusly:
+	* /Applications/Keka.app/Contents/MacOS/Keka --cli 7z x (filename.7z)
 
 
 Open a commandline terminal, and cd to the install directory.
@@ -102,6 +118,8 @@ or
 
 In other words, there are both 32-bit and 64-bit Windows executables delivered. They all should work.
 
+Windows users note: I suggest that you DO NOT try running the linux executables under WSL [Windows Subsystem for Linux; that mode is not supported]. Simply use the windows version.
+
 
 --------------------------------------------------------------
 Linux users type:
@@ -110,14 +128,25 @@ Linux users type:
 or
 * seven_gnu
 
-But if these do not run on linux, the easiest alternative is to install WINE. The Windows executables will run on linux using wine thusly:
+**If an older Linux system complains that /dev/dsp/ cannot be opened, prepend the command with "padsp",EG:  "padsp (ExeName)".**
+
+
+On linux if all else fails, an easy alternative is to install WINE. The Windows executables will run on linux using wine thusly:
 
 	* wine binw32/cube.exe
 	* wine binw32/seven.exe
 
+--------------------------------------------------------------
+Mac OSX users type:
 
-Windows users note: I suggest that you DO NOT try running the linux executables under WSL [Windows Subsystem for Linux; that mode is not supported]. Simply use the windows version.
+* cube_osx
+or
+* seven_osx
 
+Note that I no longer provide a Mac-Bundle so these apps must
+be started, as above, from the command line.
+
+--------------------------------------------------------------
 
 
 ## Running Rufascube (3x3x3):
@@ -222,9 +251,9 @@ Developer or not, send comments, suggestions or questions to:
 
 ## what is special about this project?
 
-Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, GNU/Linux.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada.
+Uses the Ada programming language and fully modern OpenGL methods with textures, shaders, uniforms, sound and actual TTF-lettering.  Achieving version 3.3 core profile contexts, it compiles and runs on Windows, OSX, GNU/Linux.  This project serves as a testbed for learning the complexities of modern OpenGL, GLSL, FreeType fonts. It is buildable using GNU-Ada.
 
-Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine, OpenAL-Audio with a custom binding, and an Ada compiler.
+Focusing on portability, transparency, and open source freedom, this project relies exclusively on F.O.S.S. tools:  the GLFW binding is custom, a FreeTypeAda binding by Felix Krause, a PNG reader by Stephen Sanguine (using Dmitriy Anisimkov's Zlib for Ada), OpenAL-Audio with a custom binding, and an Ada compiler.
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
@@ -237,35 +266,39 @@ fastrgv@gmail.com
 
 
 -------------------------------------------
-## Using the build scripts
-* systems:  Windows or GNU/Linux
-* a recent Ada compiler;  eg. GNU-Ada...try this source:
 
-https://github.com/alire-project/GNAT-FSF-builds/releases
 
+
+## Rebuild Requirements:
+* systems:  Windows, OSX, or GNU/Linux
+* a recent Ada compiler;  eg. GNU-Ada...try this link:
+	* https://github.com/alire-project/GNAT-FSF-builds/releases
 
 
 
 ## Build instructions for RufasCube or Seven:
 
 
-In the following, the "appName" can be either "cube" or "seven".
+The build scripts work for GNU Ada/g++. A good link follows:
 
-The build scripts work for GNU Ada [with its own g++].
+* https://github.com/alire-project/GNAT-FSF-builds/releases/
 
 -------------------------------------------------------
-* Windows32 => setpath32.bat + wbuildAll.bat
 
 * Windows64 => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
 
+The "setpath" scripts assume installation into $HOME\opt\.
+You will likely need to edit the scripts for the proper version.
 
-
-
+------------------------------------------------------
+Mac/OSX => obuildAll.sh
 
 ------------------------------------------------------
 GNU/Linux => lbuildAll.sh
 
-utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/gnu/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run  whether or not your system has those libraries installed.  This was used to create the executable named cube_gnu.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that these scripts will work for you.
+This script assumes GNU Ada/g++ has been installed into $HOME/opt/. You will likely need to edit the script for the proper version.
+
+utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/gnu/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run  whether or not your system has those libraries installed.  This was used to create the executable named cube.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that these scripts will work for you.
 As a last resort, you can use wine to run the Windows EXEs:
 
 	wine binw32/cube.exe
@@ -281,7 +314,7 @@ As a last resort, you can use wine to run the Windows EXEs:
 RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2022  <fastrgv@gmail.com>
+ Copyright (C) 2023  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -329,11 +362,12 @@ I also discovered that the 2x2x2 cube seems to be a software implementation of a
 
 ----------------------------------------------
 ## Download Sites for all my games:
-https://github.com/fastrgv?tab=repositories
-https://www.indiedb.com/members/fastrgv/games
-https://fastrgv.itch.io
-https://sourceforge.net/u/fastrgv/profile/
-https://gamejolt.com/@fastrgv/games
+
+* https://github.com/fastrgv?tab=repositories
+* https://www.indiedb.com/members/fastrgv/games
+* https://fastrgv.itch.io
+* https://sourceforge.net/u/fastrgv/profile/
+* https://gamejolt.com/@fastrgv/games
 
 ## Revision History:
 
@@ -356,6 +390,5 @@ https://gamejolt.com/@fastrgv/games
 * Updated linux libs to use static libfreetype.a & libpng16.a
 * Updated Windows builds to freetype v2.11.1 DLLs (w32,w64).
 * Updated libglfw.
-
 
 
