@@ -33,29 +33,22 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+
+
 # RufasCube -- using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 ## Latest Revision:
 
 
 
-**ver 4.5.4 -- 6oct2023**
+**ver 4.5.5 -- 18mar2024**
 
-* Restored OSX build...but without a bundle.
-* Added graceful-shutdown exception-handlers.
-* Improved priority parameter in cube solver.
-* Dropped Win32 build.
-
-
-**ver 4.5.3 -- 5dec2022**
-
-* Further improved embedded solvers.
-* Discontinued support of Mac/OSX. My 2013 macBookPro died!
-
-
-**ver 4.5.2 -- 16nov2022**
-
-* Fixed embedded solvers.
+* Improved/generalized OSX build scripts.
+* Added a manual save/resume function that works for normal mode puzzles.
+* Fixed the 3 iQube modes, which had not been working in the last 3 releases.
+* Improved the help screens.
+* Clarified the goals for iQube puzzle modes (6 all red faces).
+* 3x3x3 cube solver now works for all modes, even iQube.
 
 
 ### See complete revision history at end of file.
@@ -94,9 +87,9 @@ Uses FreeType font rendering & TrueType fonts.
 
 
 -------------------------------------------
-## required for running:
+## System requirements for running delivered executables:
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, OSX, & GNU/Linux 
+* Windows, OSX(>=10.13), & GNU/Linux 
 
 
 ## Setup of Rufascube:
@@ -108,7 +101,7 @@ Unzip the archive.
 
 * On Linux & Windows, 7z [www.7-zip.org] works well for this. The proper command to extract the archive and maintain the directory structure is "7z x filename".
 
-* On OSX, the command-line for Keka works thusly:
+* On OSX, Keka works well for 7Z files. The command-line for Keka is:
 	* /Applications/Keka.app/Contents/MacOS/Keka --cli 7z x (filename.7z)
 
 
@@ -157,11 +150,25 @@ be started, as above, from the command line.
 ## Running Rufascube (3x3x3):
 -------------------------------------------
 
-Shuffling the cubelets uses random numbers and is not very efficient. Typically unshuffling is a much more lengthy process than solving, and must be done before making any moves on your own. Solving can be started at any time, and can be stopped whenever you want to try to manually complete the solution.
+For experienced RufasCube users please note that there are slight key changes as of March 2024.
 
-The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content.  
+Solving can be started at any time, and can be stopped whenever you want to try to manually complete the solution.
 
-The first alternate skin has the appearance of a Rubic's cube when solved, after a preliminary scramble.  The other 3 alternate skins, which do not need scrambling (they are already scrambled) represent an iQube with a totally different goal of transforming the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  When solved the layers of letters are in alphabetical order:
+There are 2 modes to the 3x3x3 cube:  a) normal (default), and  b) iQube-mode.
+
+---------------------------------------------------------------------------------
+
+The default normal-mode has 2 different color schemes, or "skins". 
+
+The primary RGB "skin" is based on an RGB color scheme whereby position along X,Y,Z axis determines RGB-color content in the solved configuration.  This is the default skin of normal-mode.
+
+The alternate skin of normal-mode has the appearance of a Rubic's cube when solved, with each face having a solid color in the set {red,green,blue,magenta,cyan,yellow}.
+
+These first 2 skins are interchangable at any time using the (c)-key, and both work the same way. They must be scrambled, then restored.
+
+--------------------------------------------------------------------------------
+
+The iQube-mode has 3 color variations, which do not need shuffling (they are already scrambled) with a totally different goal:  to transform the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  When solved, the layers of letters are in alphabetical order:
 
 -----------
 	a b c
@@ -177,10 +184,12 @@ The first alternate skin has the appearance of a Rubic's cube when solved, after
 	x y z
 -----------
 
+Of course, for the expert, the lettering COULD be turned off, for an extra challenge.
 
-iQubes can initially be a) solidGreen; b) yellow with green dots; c) yellow with red dots.
-And they all become solid red when solved.
+The 3 iQube variations are initially  a) solidGreen; b) yellow with green dots; c) yellow
+with red dots. And they all become solid red when solved.
 
+-----------------------------------------------------------------------------------------
 
 As indicated on screen, (h) will show a help screen.  
 
@@ -188,18 +197,21 @@ The mousewheel controls zoom.
 
 More options (as indicated by the help screen):
 
-* (t)-key Toggles between the primary RGB colors and the currently selected alternate skin, without resetting puzzle;
-* (c)-key Cycles thru 4 alternate skins, but this resets puzzle;
+* (c)-key Toggles between the 2 default-mode color schemes, without resetting the puzzle.
+* (q)-key Cycles thru 3 alternate skins, but this resets puzzle to the iQube-mode.
 * 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
 * (=)-key single-steps toward a solution at any time;
-* (u)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (r)-key => reset to goal configuration;
 * (m)-key => mute-toggle of sliding sounds;
 
+* (s)-key => IF solving a default-mode RGB cube, this Saves the state; (beta test)
+* (z)-key => reZumes the game whose state was saved by the s-key...(in beta test)
 
-The keys (up),(dn),(lf),(rt),(f),(b) are functional but they are only helpful/meaningful when the Coordinate Axes are in "standard" orientation, i.e. +X is rightward, +Y is upward, and +Z is outward(toward viewer):
+Note: if you are working a normal-mode puzzle that you might want to resume later, you should save it before you press the (q)-key, since that completely resets into iQube-mode.
+
+If the axes are being displayed you might also use the movement keys:
 
 * (f)-key => +Z (forward)
 * (b)-key => -Z (backward)
@@ -216,9 +228,6 @@ Linux users note: the Windows executable files will likely run under WINE on lin
 ### hint #2
 You may find it easier to focus your attention on the 2D representation at the side of the screen.
 
-### hint #3
-After a shuffle, the #steps to unshuffle shows at bottom of screen. At this point you can press the (=)-key to see the #steps to the live solver solution. If unshuffling is quicker, then press the (u)-key to unshuffle;  otherwise continue pressing the (=)-key to step towards the solution. Note that, unlike the de-shuffler, the true solver can be used at any time.
-
 
 
 ## Running seven(2x2x2), differences:
@@ -233,7 +242,6 @@ More options (as indicated by the help screen):
 * 1-key, ... 5-key  shuffles the cubelets;
 * (c)-key Cycles thru 2 alternate skins;
 * (=)-key single-steps toward a solution at any time;
-* (u)-key single-steps toward a solution by undoing the shuffle;
 * (i)-key or mousewheel zooms-In;
 * (o)-key or mousewheel zooms-Out;
 * (m)-key => mute-toggle of sliding sounds;
@@ -262,7 +270,7 @@ Focusing on portability, transparency, and open source freedom, this project rel
 
 The linux-build is among very few modern OpenGL games where a single pre-built executable can run on multiple Linux distros without 3rd party add-ons!
 
-Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It can be ignored whenever you feel more confident and want to begin making moves on your own. Solutions are quickly found but may not always be minimal.
+Finally, the new "live" autosolver is quite sophisticated. It allows invocation at any time and can be used to get a few steps closer, or all the way to a solution, no matter the current state. It can be ignored whenever you feel more confident and want to begin making moves on your own. Solutions are found within a few seconds but may not be minimal.
 
 Open source Ada developers are welcome to help improve or extend this app.
 Developer or not, send comments, suggestions or questions to:
@@ -319,7 +327,7 @@ As a last resort, you can use wine to run the Windows EXEs:
 RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2023  <fastrgv@gmail.com>
+ Copyright (C) 2024  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -374,7 +382,20 @@ I also discovered that the 2x2x2 cube seems to be a software implementation of a
 * https://sourceforge.net/u/fastrgv/profile/
 * https://gamejolt.com/@fastrgv/games
 
-## Revision History:
+## Revision History:-----------------------------------
+
+**ver 4.5.4 -- 6oct2023**
+* Restored OSX build...but without a bundle.
+* Added graceful-shutdown exception-handlers.
+* Improved priority parameter in cube solver.
+* Dropped Win32 build.
+
+**ver 4.5.3 -- 5dec2022**
+* Further improved embedded solvers.
+* Discontinued support of Mac/OSX. My 2013 macBookPro died!
+
+**ver 4.5.2 -- 16nov2022**
+* Fixed embedded solvers.
 
 **ver 4.5.1 -- 30sep2022**
 * Now using simpler-to-setup GNU Ada for Win64.
