@@ -31,14 +31,23 @@ Type "7z x filename.7z" to extract the archive.
 
 
 
+Permalink:
+
+https://sourceforge.net/projects/rufascube/files/latest/download
 
 
+# RufasCube 
+## using OpenAL audio, GLFW, FreeType Fonts (TTF)
 
 
-# RufasCube -- using OpenAL audio, GLFW, FreeType Fonts (TTF)
+## Latest Revisions:
 
-## Latest Revision:
 
+**ver 4.5.6 -- 18jan2026**
+
+* Eliminated need to install MSVC-redistributables on Windows 10, 11.
+* Clarified windows-setup document.
+* Added origin to the show-axes display.
 
 
 **ver 4.5.5 -- 18mar2024**
@@ -56,17 +65,17 @@ Type "7z x filename.7z" to extract the archive.
 
 
 ## RufasCube Game Description
-RufasCube is NOT another Rubic's Cube. It's a much easier slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
+RufasCube is NOT another Rubic's Cube. It's a slider puzzle that is incrementally solvable. A 3x3x3 arrangement of cubelets with the center one missing allows sliding permutations. After a randomization, the goal is to restore the cube to its original configuration based on color and alphabetic hints. Now contains a smaller 2x2x2 cube called "Seven", that is an easier version.
 
-Works on PCs running Windows, OSX, or GNU/Linux.
+Works on PCs running Windows 10/11 or Linux, or Macs running OSX.
 
 -----------------------------------------------------------
 Featuring
 
-	* no installation
-	* no dependencies
-	* simply unzip in your Downloads directory, and run;
-	* or unzip onto a USB flash drive [w/same file format] and run.
+* no installation
+* no dependencies
+* simply unzip in your Downloads directory, and run;
+* or unzip onto a USB flash drive [w/same file format] and run.
 -----------------------------------------------------------
 
 
@@ -89,7 +98,7 @@ Uses FreeType font rendering & TrueType fonts.
 -------------------------------------------
 ## System requirements for running delivered executables:
 * graphics card & driver that supports OpenGL version 3.3 or later;
-* Windows, OSX(>=10.13), & GNU/Linux 
+* Windows 10/11, Mac/OSX, & Linux 
 
 
 ## Setup of Rufascube:
@@ -110,11 +119,9 @@ Open a commandline terminal, and cd to the install directory.
 --------------------------------------------------------------
 Windows users may type:
 
-* cube32.bat or cube64.bat
+* cube.bat
 or
-* seven32.bat or seven64.bat
-
-In other words, there are both 32-bit and 64-bit Windows executables delivered. They all should work.
+* seven.bat
 
 Windows users note: I suggest that you DO NOT try running the linux executables under WSL [Windows Subsystem for Linux; that mode is not supported]. Simply use the windows version.
 
@@ -131,8 +138,8 @@ or
 
 On linux if all else fails, an easy alternative is to install WINE. The Windows executables will run on linux using wine thusly:
 
-	* wine binw32/cube.exe
-	* wine binw32/seven.exe
+* wine binw64/cube.exe
+* wine binw64/seven.exe
 
 --------------------------------------------------------------
 Mac OSX users type:
@@ -152,7 +159,7 @@ be started, as above, from the command line.
 
 For experienced RufasCube users please note that there are slight key changes as of March 2024.
 
-Solving can be started at any time, and can be stopped whenever you want to try to manually complete the solution.
+Autosolving can be started at any time, and can be stopped whenever you want to try to manually complete the solution.
 
 There are 2 modes to the 3x3x3 cube:  a) normal (default), and  b) iQube-mode.
 
@@ -168,23 +175,26 @@ These first 2 skins are interchangable at any time using the (c)-key, and both w
 
 --------------------------------------------------------------------------------
 
-The iQube-mode has 3 color variations, which do not need shuffling (they are already scrambled) with a totally different goal:  to transform the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  When solved, the layers of letters are in alphabetical order:
+The iQube-mode has 3 color variations, which do not need shuffling (they are already scrambled) with a totally different goal:  to transform the outer surface of the cube from its initial appearance to entirely RED.  In all cases, the lettering will assist you in solving the puzzle.  
 
------------
-	a b c
-	d e f
-	g h i
------------
-	j k l
-	m . n
-	o p q
------------
-	r s t
-	u v w
-	x y z
------------
+--------------------------------------------------------------------------------
 
-Of course, for the expert, the lettering COULD be turned off, for an extra challenge.
+All modes, when solved, show the layers of letters in alphabetical order:
+
+		a b c
+		d e f
+		g h i
+		-----
+		j k l
+		m . n
+		o p q
+		-----
+		r s t
+		u v w
+		x y z
+
+
+Of course, for the expert, the color coding is enough and the lettering COULD be turned off, for an extra challenge.
 
 The 3 iQube variations are initially  a) solidGreen; b) yellow with green dots; c) yellow
 with red dots. And they all become solid red when solved.
@@ -194,11 +204,15 @@ with red dots. And they all become solid red when solved.
 As indicated on screen, (h) will show a help screen.  
 
 The mousewheel controls zoom.
+The right mouse button selects cubelet to move.
+Cursor + (enter) also selects cubelet to move.
 
 More options (as indicated by the help screen):
 
+* (q)-key Cycles thru 3 alternate skins, **but this resets puzzle to the iQube-mode !**
+
+-----------------------------------------------------------------------------------------
 * (c)-key Toggles between the 2 default-mode color schemes, without resetting the puzzle.
-* (q)-key Cycles thru 3 alternate skins, but this resets puzzle to the iQube-mode.
 * 1-key, ... 5-key  shuffles the cubelets...1:small-shuffle, 5:maximum-shuffle
 * (=)-key single-steps toward a solution at any time;
 * (i)-key or mousewheel zooms-In;
@@ -206,12 +220,16 @@ More options (as indicated by the help screen):
 * (r)-key => reset to goal configuration;
 * (m)-key => mute-toggle of sliding sounds;
 
-* (s)-key => IF solving a default-mode RGB cube, this Saves the state; (beta test)
-* (z)-key => reZumes the game whose state was saved by the s-key...(in beta test)
+-------------------- save/restore (beta-test) -------------------------------------
 
+* (s)-key => IF solving a default-mode RGB cube, this Saves the state;
+* (z)-key => reZumes the game whose state was saved by the s-key.
+
+-----------------------------------------------------------------------------------------
 Note: if you are working a normal-mode puzzle that you might want to resume later, you should save it before you press the (q)-key, since that completely resets into iQube-mode.
 
-If the axes are being displayed you might also use the movement keys:
+
+If you choose to display the XYZ axes and if you show them in the "standard" orientation [with +X rightward, +Y upward, +Z outward], you might then use the following movement keys:
 
 * (f)-key => +Z (forward)
 * (b)-key => -Z (backward)
@@ -223,15 +241,15 @@ If the axes are being displayed you might also use the movement keys:
 
 
 ### hint #1
-Linux users note: the Windows executable files will likely run under WINE on linux.
+Linux users note: the Windows executable files will run under WINE on linux.
 
 ### hint #2
 You may find it easier to focus your attention on the 2D representation at the side of the screen.
 
 
+-----------------------------------------------------------------------------------------
 
 ## Running seven(2x2x2), differences:
--------------------------------------------
 
 This simpler, smaller cube has fewer options.
 
@@ -283,7 +301,7 @@ fastrgv@gmail.com
 
 
 ## Rebuild Requirements:
-* systems:  Windows, OSX, or GNU/Linux
+* systems:  Windows, OSX, or Linux
 * a recent Ada compiler;  eg. GNU-Ada...try this link:
 	* https://github.com/alire-project/GNAT-FSF-builds/releases
 
@@ -298,7 +316,7 @@ The build scripts work for GNU Ada/g++. A good link follows:
 
 -------------------------------------------------------
 
-* Windows64 => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
+* Windows => setpath64.bat + w64buildAll.bat (read ~docs\gnuAdaOnWindows.txt)
 
 The "setpath" scripts assume installation into $HOME\opt\.
 You will likely need to edit the scripts for the proper version.
@@ -307,15 +325,15 @@ You will likely need to edit the scripts for the proper version.
 Mac/OSX => obuildAll.sh
 
 ------------------------------------------------------
-GNU/Linux => lbuildAll.sh
+Linux => lbuildAll.sh
 
 This script assumes GNU Ada/g++ has been installed into $HOME/opt/. You will likely need to edit the script for the proper version.
 
 utilizes the uncommon relocatable libraries (mainly GLFW) that are delivered in this bundle under ./libs/gnu/.  This is used to build the dynamically-linked [gnu/linux] executable, which should run  whether or not your system has those libraries installed.  This was used to create the executable named cube.  If it doesn't run on your linux distro, you will have to try to build the executable yourself.  In that case, it is hoped that these scripts will work for you.
 As a last resort, you can use wine to run the Windows EXEs:
 
-	wine binw32/cube.exe
-	wine binw32/seven.exe
+	wine binw64/cube.exe
+	wine binw64/seven.exe
 
 
 
@@ -327,7 +345,7 @@ As a last resort, you can use wine to run the Windows EXEs:
 RufasCube is covered by the GNU GPL v3 as indicated in the sources:
 
 
- Copyright (C) 2024  <fastrgv@gmail.com>
+ Copyright (C) 2026  <fastrgv@gmail.com>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
